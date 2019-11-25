@@ -14,5 +14,12 @@ public class PrincipalTemplate {
 	}
 	
 	
+	@GetMapping("/armazones")
+	public ModelAndView viewArmazon() {
+		
+		return new ModelAndView("gestionArmazon");
+	}
+	
+	
 
 }
