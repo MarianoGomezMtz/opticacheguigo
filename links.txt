@@ -1,0 +1,1 @@
+https://www.arquitecturajava.com/java-generic-repository-y-jpa/
