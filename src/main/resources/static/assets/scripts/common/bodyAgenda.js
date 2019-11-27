@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
+  var calendarEl = document.getElementById('calendario');
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
      plugins: [ 'bootstrap', 'interaction', 'dayGrid', 'timeGrid', 'list' ],
@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
      navLinks: true,
      locale: 'es',
      timeZone: 'UTC',
+     themeSystem: 'bootstrap',
     header: {
             left: 'prev,next today',
             center: 'title',
