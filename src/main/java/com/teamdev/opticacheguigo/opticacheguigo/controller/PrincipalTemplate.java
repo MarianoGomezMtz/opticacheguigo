@@ -20,6 +20,12 @@ public class PrincipalTemplate {
 		return new ModelAndView("gestionArmazon");
 	}
 	
+	@GetMapping("/agenda")
+	public ModelAndView viewAgenda() {
+		
+		return new ModelAndView("agenda");
+	}
+	
 	
 
 }
