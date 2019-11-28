@@ -24,7 +24,7 @@
                     
                 </div>    
                 <div class="app-main__outer">
-                	<div th:replace="fragments/components/resumenVenta::resumen-venta">
+                	<div th:replace="commons/consultaPaciente::consulta-paciente">
                     	
                     </div>
                     
@@ -33,14 +33,23 @@
 <!--                     </div> -->
                       
                </div>
-<!--                 <script src="http://maps.google.com/maps/api/js?sensor=true"></script> -->
         </div>
     </div>
 
 
+<script  th:src="@{/assets/scripts/plugins/fullcalendar/packages/core/main.js}"></script>
+<script  th:src="@{/assets/scripts/plugins/fullcalendar/packages/interaction/main.js}"></script>
+
+
 <script type="text/javascript"  th:src="@{/assets/scripts/main.js}"></script>
-<script type="text/javascript"  th:src="@{/assets/scripts/plugins/jquery-3.4.1.min.js}"></script>
-<script type="text/javascript"  th:src="@{/assets/scripts/plugins/sweetalert.js}"></script>
-<script type="text/javascript"  th:src="@{/assets/scripts/components/resumen.js}"></script>
+<script type="text/javascript" th:src="@{/assets/scripts/plugins/fullcalendar/packages/bootstrap/main.js}"></script>
+<script type="text/javascript" th:src="@{/assets/scripts/plugins/fullcalendar/packages/daygrid/main.js}"></script>
+<script type="text/javascript" th:src="@{/assets/scripts/plugins/fullcalendar/packages/timegrid/main.js}"></script>
+<script type="text/javascript" th:src="@{/assets/scripts/plugins/fullcalendar/packages/list/main.js}"></script>
+<script  th:src="@{/assets/scripts/common/theme-chooser.js}"></script>
+<script type="text/javascript" th:src="@{/assets/scripts/plugins/fullcalendar/packages/core/locales-all.js}"></script>
+ <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
+<script type="text/javascript"  th:src="@{/assets/scripts/common/bodyAgenda.js}"></script>
 </body>
 </html>

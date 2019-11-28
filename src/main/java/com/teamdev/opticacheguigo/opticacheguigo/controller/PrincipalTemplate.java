@@ -26,6 +26,12 @@ public class PrincipalTemplate {
 		return new ModelAndView("agenda");
 	}
 	
+	@GetMapping("/procesoVenta")
+	public ModelAndView viewVenta() {
+		
+		return new ModelAndView("procesoVenta");
+	}
+	
 	
 
 }

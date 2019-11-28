@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="consulta-paciente" class="row">
+	<div class="col-md-6">
+		<div class="main-card mb-3 card">
+			<div class="card-body">
+				<h5 class="card-title">Controls Types</h5>
+				<form class="">
+					<div class="position-relative form-group">
+						<label for="exampleEmail" class="">Email</label><input
+							name="email" id="exampleEmail" placeholder="with a placeholder"
+							type="email" class="form-control">
+					</div>
+					<div class="position-relative form-group">
+						<label for="examplePassword" class="">Password</label><input
+							name="password" id="examplePassword"
+							placeholder="password placeholder" type="password"
+							class="form-control">
+					</div>
+					<div class="position-relative form-group">
+						<label for="exampleSelect" class="">Select</label><select
+							name="select" id="exampleSelect" class="form-control">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="position-relative form-group">
+						<label for="exampleSelectMulti" class="">Select Multiple</label><select
+							multiple="" name="selectMulti" id="exampleSelectMulti"
+							class="form-control">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="position-relative form-group">
+						<label for="exampleText" class="">Text Area</label>
+						<textarea name="text" id="exampleText" class="form-control"></textarea>
+					</div>
+					<div class="position-relative form-group">
+						<label for="exampleFile" class="">File</label><input name="file"
+							id="exampleFile" type="file" class="form-control-file"> <small
+							class="form-text text-muted">This is some placeholder
+							block-level help text for the above input. It's a bit lighter and
+							easily wraps to a new line.</small>
+					</div>
+					<button class="mt-1 btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="main-card mb-3 card">
+			<div class="card-body">
+				<h5 class="card-title">Sizing</h5>
+				<form class="">
+					<input placeholder="lg" type="text"
+						class="mb-2 form-control-lg form-control"><input
+						placeholder="default" type="text" class="mb-2 form-control"><input
+						placeholder="sm" type="text"
+						class="mb-2 form-control-sm form-control">
+					<div class="divider"></div>
+					<select class="mb-2 form-control-lg form-control">
+						<option>Large Select</option>
+					</select><select class="mb-2 form-control">
+						<option>Default Select</option>
+					</select><select class="form-control-sm form-control">
+						<option>Small Select</option>
+					</select>
+				</form>
+			</div>
+		</div>
+		<div class="main-card mb-3 card">
+			<div class="card-body">
+				<h5 class="card-title">Checkboxes &amp; Radios</h5>
+				<form class="">
+					<fieldset class="position-relative form-group">
+						<div class="position-relative form-check">
+							<label class="form-check-label"><input name="radio1"
+								type="radio" class="form-check-input"> Option one is
+								this and that—be sure to include why it's great</label>
+						</div>
+						<div class="position-relative form-check">
+							<label class="form-check-label"><input name="radio1"
+								type="radio" class="form-check-input"> Option two can be
+								something else and selecting it will deselect option one</label>
+						</div>
+						<div class="position-relative form-check disabled">
+							<label class="form-check-label"><input name="radio1"
+								disabled="" type="radio" class="form-check-input">
+								Option three is disabled</label>
+						</div>
+					</fieldset>
+					<div class="position-relative form-check">
+						<label class="form-check-label"><input type="checkbox"
+							class="form-check-input"> Check me out</label>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</html>
