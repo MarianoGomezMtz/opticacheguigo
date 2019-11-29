@@ -29,7 +29,13 @@ public class PrincipalTemplate {
 	@GetMapping("/procesoVenta")
 	public ModelAndView viewVenta() {
 		
-		return new ModelAndView("procesoVenta");
+		return new ModelAndView("procesoVenta").addObject("title","Proceso de Venta");
+	}
+	
+	@GetMapping("/pacientesEncontrados")
+	public ModelAndView viewPacientes() {
+		
+		return new ModelAndView("resultBusquedaPacientes").addObject("title","Proceso de Venta");
 	}
 	
 	
