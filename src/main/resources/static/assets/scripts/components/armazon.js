@@ -1,3 +1,5 @@
+
+var modal = $('#modal').iziModal();
 (function() {
 	'use strict';
 	window.addEventListener('load', function() {
