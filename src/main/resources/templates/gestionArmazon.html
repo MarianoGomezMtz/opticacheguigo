@@ -6,45 +6,37 @@
 </head>
 
 <body>
-    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-    	<div th:insert="fragments/header::menuUp"></div>
-    	
-        
-               <div class="app-main">
-                <div class="app-sidebar sidebar-shadow">
-                    <div  th:replace="fragments/logo::logo">                       
-                    </div>
-                    
-                   <div th:replace="fragments/logo::mobile-menu"></div>
-                   
-                   <div th:replace="fragments/logo::header-menu" ></div>
-                   
-                   <div th:replace="fragments/contenido::contenido-menu"></div>
-                   
-                    
-                </div>    
-                <div class="app-main__outer">
-                	<div th:replace="fragments/components/armazon::armazon">
-                    	
-                    </div>
-                    
-                     <a href="#" data-izimodal-open="#modal" data-izimodal-transitionin="fadeInDown">Modal</a>
-                        
-                    <div id="modal"> <!-- data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle"  data-iziModal-icon="icon-home" -->
-   							 <!-- Modal content -->
-					</div>
-                    
-<!--                     <div th:replace="fragments/footer::footer"> -->
-                    	
-<!--                     </div> -->
-                      
-               </div>
-                <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+    <div th:insert="fragments/header::menuUp"></div>
+
+
+    <div class="app-main">
+        <div class="app-sidebar sidebar-shadow">
+            <div th:replace="fragments/logo::logo">
+            </div>
+
+            <div th:replace="fragments/logo::mobile-menu"></div>
+
+            <div th:replace="fragments/logo::header-menu"></div>
+
+            <div th:replace="fragments/contenido::contenido-menu"></div>
+
+
         </div>
+        <div class="app-main__outer">
+            <div th:replace="fragments/components/armazon::armazon">
+
+            </div>
+
+            <a href="#" data-izimodal-open="#modal" data-izimodal-transitionin="fadeInDown">Modal</a>
+            
+        </div>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     </div>
-<script type="text/javascript"  th:src="@{/assets/scripts/plugins/jquery-3.4.1.min.js}"></script>
-<script type="text/javascript"  th:src="@{/assets/scripts/plugins/iziModal.min.js}"></script>
-<script type="text/javascript"  th:src="@{/assets/scripts/main.js}"></script>
-<script type="text/javascript"  th:src="@{/assets/scripts/components/armazon.js}"></script>
+</div>
+<script type="text/javascript" th:src="@{/assets/scripts/plugins/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/scripts/plugins/iziModal.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/scripts/main.js}"></script>
+<script type="text/javascript" th:src="@{/assets/scripts/components/armazon.js}"></script>
 </body>
 </html>
