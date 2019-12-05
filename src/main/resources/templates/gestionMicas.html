@@ -28,10 +28,12 @@
                     	
                     </div>
                     
-                     <a href="#" data-izimodal-open="#modal" data-izimodal-transitionin="fadeInDown">Modal</a>
+                     
                         
-                    <div id="modal"> <!-- data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle"  data-iziModal-icon="icon-home" -->
-   							 <!-- Modal content -->
+                    <div id="modal" data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle" > <!-- data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle"  data-iziModal-icon="icon-home" -->
+   							 <div th:replace="commons/agregarMicas::modal-mica(Agregar)">
+                    	
+                    		</div>
 					</div>
                     
 <!--                     <div th:replace="fragments/footer::footer"> -->
