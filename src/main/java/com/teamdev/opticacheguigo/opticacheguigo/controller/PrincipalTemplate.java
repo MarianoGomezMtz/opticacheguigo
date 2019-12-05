@@ -44,6 +44,12 @@ public class PrincipalTemplate {
 		return new ModelAndView("resultBusquedaPacientes").addObject("title","Proceso de Venta");
 	}
 	
+	@GetMapping("/agregarMicas")
+	public ModelAndView viewAgregarMicas() {
+		
+		return new ModelAndView("agregarMicas");
+	}
+	
 	
 
 }
