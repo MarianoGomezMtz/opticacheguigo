@@ -30,12 +30,17 @@
                     
                      
                         
-                    <div id="modal" data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle" > <!-- data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle"  data-iziModal-icon="icon-home" -->
+                    <div id="modalAgregar" data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle" > <!-- data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle"  data-iziModal-icon="icon-home" -->
    							 <div th:replace="commons/agregarMicas::modal-mica(Agregar)">
                     	
                     		</div>
 					</div>
                     
+                    <div id="modalEditar" data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle" > <!-- data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle"  data-iziModal-icon="icon-home" -->
+   							 <div th:replace="commons/agregarMicas::modal-mica(Editar)">
+                    	
+                    		</div>
+					</div>
 <!--                     <div th:replace="fragments/footer::footer"> -->
                     	
 <!--                     </div> -->
@@ -46,6 +51,7 @@
     </div>
 <script type="text/javascript"  th:src="@{/assets/scripts/plugins/jquery-3.4.1.min.js}"></script>
 <script type="text/javascript"  th:src="@{/assets/scripts/plugins/iziModal.min.js}"></script>
+<script type="text/javascript"  th:src="@{/assets/scripts/plugins/sweetalert.js}"></script>
 <script type="text/javascript"  th:src="@{/assets/scripts/main.js}"></script>
 <script type="text/javascript"  th:src="@{/assets/scripts/components/armazon.js}"></script>
 </body>

@@ -1,5 +1,10 @@
 
-var modal = $('#modal').iziModal();
+var modalAgregar = $('#modalAgregar').iziModal();
+var modalEditar = $('#modalEditar').iziModal();
+
+function mensajeExito() {
+	swal("Operacion", "Realizada Correctamente", "success");
+}
 (function() {
 	'use strict';
 	window.addEventListener('load', function() {
