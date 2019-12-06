@@ -49,7 +49,15 @@ public class PrincipalTemplate {
 		
 		return new ModelAndView("agregarMicas");
 	}
-	
-	
+
+	/**
+	 * Create an instance of the type {@link ModelAndView}
+	 * @return Instance of the type {@link ModelAndView}
+	 */
+	@GetMapping("/tratamiento")
+	public ModelAndView viewTratamiento(){
+
+		return new ModelAndView("tratamiento");
+	}
 
 }
