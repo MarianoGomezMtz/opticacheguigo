@@ -20,16 +20,31 @@
 	<div class="main-card mb-3 card">
                             <div class="card-body">
                                 <h5 class="card-title">Micas</h5>
-                                <div class="search-wrapper">
-									  	<div class="input-holder"> 
-											<input type="text" class="search-input"
-												placeholder="Buscar mica">
-											<button class="search-icon">
-												<span></span>
-											</button>
-										</div>
-										<button class="close"></button>
-									</div>
+                                <form class="needs-validation" novalidate>
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Codigo</label>
+                                            <input type="text" class="form-control" id="validationCustom01" placeholder="Mica">
+                                            
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom02">Tipo de mica</label>
+                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Material">
+                                            
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom02">Material</label>
+                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Precio de Compra">
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                   
+                                    <button class="btn btn-primary" type="button">Buscar
+                                    	<a onclick="mensajeExito()" th:text="${operacion}">
+										</a>
+                                    </button>
+                                </form>
 									<div>
 									 	<button class="mb-2 mr-2 btn btn-success" type="button">
                                     	
