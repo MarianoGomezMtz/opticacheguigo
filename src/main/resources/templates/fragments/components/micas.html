@@ -27,30 +27,38 @@
                                             <input type="text" class="form-control" id="validationCustom01" placeholder="Mica">
                                             
                                         </div>
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-1 mb-2">
                                             <label for="validationCustom02">Tipo de mica</label>
                                             <input type="text" class="form-control" id="validationCustom02" placeholder="Material">
                                             
                                         </div>
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-1 mb-2">
                                             <label for="validationCustom02">Material</label>
                                             <input type="text" class="form-control" id="validationCustom02" placeholder="Precio de Compra">
                                             
                                         </div>
                                     </div>
                                     
-                                   
-                                    <button class="btn btn-primary" type="button">Buscar
-                                    	<a onclick="mensajeExito()" th:text="${operacion}">
-										</a>
-                                    </button>
-                                </form>
-									<div>
-									 	<button class="mb-2 mr-2 btn btn-success" type="button">
+                                    <div class="form-row">
+                                    	<div class="col-md-4 mb-3">
+                                    		<button class="btn btn-primary" type="button">Buscar
+                                    		<a onclick="mensajeExito()" th:text="${operacion}">
+											</a>
+                                    	</button>
+                                    	</div>
+                                    	<div class="col-md-4 mb-3">
+                                    		<button class="mb-2 mr-2 btn btn-success" type="button">
                                     	
-											<a href="#" data-izimodal-open="#modalAgregar" data-izimodal-transitionin="fadeInDown">Nuevo</a>
-										</button>
-									</div>
+												<a href="#" data-izimodal-open="#modalAgregar" data-izimodal-transitionin="fadeInDown">Nuevo</a>
+											</button>
+                                    	</div>
+                                        
+                                    </div>
+                                    
+                                   
+                                    
+                                </form>
+									
                                 <div class="row">
                             
                             
@@ -84,13 +92,13 @@
                                                     <td>20</td>
 													<td style="text-align: center;">
 														<a href="#" data-izimodal-open="#modalEditar" data-izimodal-transitionin="fadeInDown">
-															<i class="pe-7s-note pe-2x pe-va"> </i> 
+															<i class="pe-7s-note pe-2x pe-va "> </i> 
 														</a>
 														
 													</td>
 													<td style="text-align: center;">
-														<a href="elements-navigation.html"> 
-															<i class="pe-7s-trash pe-2x pe-va"> </i> 
+														<a onclick="mensaje('Realizada correcamente','success')"> 
+															<i class="pe-7s-trash pe-2x pe-va bg-tempting-azure"> </i> 
 														</a>
 													</td>
                                                 </tr>
@@ -109,8 +117,8 @@
 														
 													</td>
 													<td style="text-align: center;">
-														<a href="elements-navigation.html"> 
-															<i class="pe-7s-trash pe-2x pe-va"> </i> 
+														<a onclick="mensaje('Realizada correcamente','success')"> 
+															<i class="pe-7s-trash pe-2x pe-va bg-tempting-azure "> </i> 
 														</a>
 													</td>
                                                 </tr>
@@ -128,9 +136,10 @@
 														
 													</td>
 													<td style="text-align: center;">
-														<a href="elements-navigation.html"> 
-															<i class="pe-7s-trash pe-2x pe-va"> </i> 
+														<a onclick="mensaje('Realizada correcamente','success')"> 
+															<i class="pe-7s-trash pe-2x pe-va bg-tempting-azure"> </i> 
 														</a>
+														
 													</td>
                                                 </tr>
                                                 </tbody>
