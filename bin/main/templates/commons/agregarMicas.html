@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="modal-mica(operacion)" class="app-main__inner">
+	
+	<div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${operacion}"></h5>
+                                <form class="needs-validation" novalidate>
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Mica</label>
+                                            <input type="text" class="form-control" id="validationCustom01" placeholder="Mica">
+                                            
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom02">Material</label>
+                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Material">
+                                            
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom02">Precio de compra</label>
+                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Precio de Compra">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="validationCustom03">Precio de venta</label>
+                                            <input type="text" class="form-control" id="validationCustom03" placeholder="Precio Venta" required>
+                                         
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom04">Cantidad</label>
+                                            <input type="text" class="form-control" id="validationCustom04" placeholder="cantidad" required>
+                                          
+                                        </div>
+                                        
+                                    </div>
+                                   
+                                    <button class="btn btn-primary" type="button">
+
+                                    	<a onclick="mensaje('Realizada correcamente','success')" th:text="${operacion}">
+											
+
+										</a>
+                                    </button>
+                                </form>
+            
+
+                            </div>
+           </div>
+	
+</div>
+</html>

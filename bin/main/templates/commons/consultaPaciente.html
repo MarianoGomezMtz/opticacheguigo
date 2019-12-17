@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="consulta-paciente" class="app-main__inner">
+	<div class="app-page-title">
+		<div class="page-title-wrapper">
+			<div class="page-title-heading">
+				<div class="page-title-icon">
+					<i class="pe-7s-car icon-gradient bg-mean-fruit"> </i>
+				</div>
+				<div th:text="${title}">
+					
+					<div class="page-title-subheading"></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">B&uacute;squeda de Paciente</h5>
+                                <form class="needs-validation" novalidate>
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">N&uacute;mero de cliente</label>
+                                            <input type="text" class="form-control" id="validationCustom01" placeholder="N&uacute;mero Cliente">
+                                            
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom02">Nombre</label>
+                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Nombre">
+                                            
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustomUsername">E-Mail</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="validationCustom03">Tel&eacute;fono</label>
+                                            <input type="text" class="form-control" id="validationCustom03" placeholder="Tel&eacute;fono" required>
+                                         
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom04">Direcci&oacute;n</label>
+                                            <input type="text" class="form-control" id="validationCustom04" placeholder="Direcci&oacute;n" required>
+                                          
+                                        </div>
+                                        
+                                    </div>
+                                   
+                                    <button class="btn btn-primary" type="button">
+                                    	<a th:href="@{/pacientesEncontrados}"> Buscar
+											
+								
+										</a>
+                                    </button>
+                                </form>
+            
+
+                            </div>
+           </div>
+	
+</div>
+</html>

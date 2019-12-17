@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header::head">
+
+</head>
+
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+    	<div th:insert="fragments/header::menuUp"></div>
+    	
+        
+               <div class="app-main">
+                <div class="app-sidebar sidebar-shadow">
+                    <div  th:replace="fragments/logo::logo">                       
+                    </div>
+                    
+                   <div th:replace="fragments/logo::mobile-menu"></div>
+                   
+                   <div th:replace="fragments/logo::header-menu" ></div>
+                   
+                   <div th:replace="fragments/contenido::contenido-menu"></div>
+                   
+                    
+                </div>    
+                <div class="app-main__outer">
+                	<div th:replace="commons/consultaPaciente::consulta-paciente">
+                    	
+                    </div>
+                    
+<!--                     <div th:replace="fragments/footer::footer"> -->
+                    	
+<!--                     </div> -->
+                      
+               </div>
+        </div>
+    </div>
+
+
+<script type="text/javascript"  th:src="@{/assets/scripts/main.js}"></script>
+</body>
+</html>
