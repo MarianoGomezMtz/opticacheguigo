@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class PrincipalTemplate {
 	
-	@GetMapping("/")
+	@GetMapping("/template")
 	public ModelAndView index() {
 		
 		return new ModelAndView("main");
