@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	//Necesario para evitar que la seguridad se aplique a los resources
     //Como los css, imagenes y javascripts
     String[] resources = new String[]{
-            "/assets/**","/css/**","/icons/**","/img/**","/js/**","/layer/**"
+            "/assets/**","/css/**","/icons/**","/img/**","/js/**","/login/**"
     };
 	
     
@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .formLogin()
             .loginPage("/login")
             .permitAll()
-            .defaultSuccessUrl("/menu")
+            .defaultSuccessUrl("/template")
             .failureUrl("/login?error=true")
             .usernameParameter("username")
             .passwordParameter("password")
