@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class PrincipalTemplate {
 	
 	@GetMapping("/template")
-	public ModelAndView index() {
+	public ModelAndView main() {
 		
 		return new ModelAndView("main");
 	}
