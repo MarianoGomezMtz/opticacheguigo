@@ -1,10 +1,12 @@
-
+package com.teamdev.opticacheguigo.opticacheguigo.dao;o
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.bolsadeideas.springboot.app.models.entity.Producto;
+import com.teamdev.opticacheguigo.opticacheguigo.model.Producto;
+
+
 
 public interface IProductoDao extends CrudRepository<Producto, Long> {
 
