@@ -19,9 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
 	  private DataSource dataSource;
-
-	//Necesario para evitar que la seguridad se aplique a los resources
-    //Como los css, imagenes y javascripts
+	
     String[] resources = new String[]{
             "/assets/**","/css/**","/icons/**","/img/**","/js/**","/login/**"
     };
