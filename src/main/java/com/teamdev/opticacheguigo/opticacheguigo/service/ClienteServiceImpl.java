@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.teamdev.opticacheguigo.opticacheguigo.dao.IClienteDao;
+import com.teamdev.opticacheguigo.opticacheguigo.dao.IFacturaDao;
+import com.teamdev.opticacheguigo.opticacheguigo.dao.IProductoDao;
+import com.teamdev.opticacheguigo.opticacheguigo.model.Cliente;
+import com.teamdev.opticacheguigo.opticacheguigo.model.Factura;
+import com.teamdev.opticacheguigo.opticacheguigo.model.Producto;
 
 
 

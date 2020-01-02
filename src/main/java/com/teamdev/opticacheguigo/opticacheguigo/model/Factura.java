@@ -44,6 +44,15 @@ public class Factura implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "factura_id")
 	private List<ItemFactura> items;
+	
+	@NotEmpty
+	private Double subtotal;
+	
+	
+	private Double descuento;
+	
+	@NotEmpty
+	private Double total;
 
 	public Factura() {
 		this.items = new ArrayList<ItemFactura>();

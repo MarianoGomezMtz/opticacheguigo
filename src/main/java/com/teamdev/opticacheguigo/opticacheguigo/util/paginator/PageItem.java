@@ -1,3 +1,4 @@
+package com.teamdev.opticacheguigo.opticacheguigo.util.paginator;
 
 public class PageItem {
 

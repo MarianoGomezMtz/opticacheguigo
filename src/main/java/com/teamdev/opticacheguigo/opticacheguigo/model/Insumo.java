@@ -3,46 +3,54 @@ package com.teamdev.opticacheguigo.opticacheguigo.model;
 import java.io.Serializable;
 import java.util.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "productos")
-public class Producto implements Serializable {
+@Table(name = "insumos")
+public class Insumo implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Insumo insumo;
 
-	private String nombre;
+	@NotEmpty
+	private String insumo;
 	
-	@Column(name = "precio_compra")
-	private Double precioCompra;
-	
-	@Column(name = "precio_venta")
-	private Double precioVenta;
+	@NotEmpty
+	private String descrcipcion;
 
-	@Temporal(TemporalType.DATE)
+		
+	@NotEmpty
+	private Integer status;
+
+	
+	@NotNull
 	@Column(name = "create_at")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createAt;
 
+		
 	@PrePersist
 	public void prePersist() {
 		createAt = new Date();
+		status = 1;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -51,15 +59,8 @@ public class Producto implements Serializable {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	
+
 	public Date getCreateAt() {
 		return createAt;
 	}
@@ -68,34 +69,34 @@ public class Producto implements Serializable {
 		this.createAt = createAt;
 	}
 
+			
+	public String getDescrcipcion() {
+		return descrcipcion;
+	}
+
+	public void setDescrcipcion(String descrcipcion) {
+		this.descrcipcion = descrcipcion;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
 	
-	
-	public Insumo getInsumo() {
+		
+	public String getInsumo() {
 		return insumo;
 	}
 
-	public void setInsumo(Insumo insumo) {
+	public void setInsumo(String insumo) {
 		this.insumo = insumo;
-	}
-
-	public Double getPrecioCompra() {
-		return precioCompra;
-	}
-
-	public void setPrecioCompra(Double precioCompra) {
-		this.precioCompra = precioCompra;
-	}
-
-	public Double getPrecioVenta() {
-		return precioVenta;
-	}
-
-	public void setPrecioVenta(Double precioVenta) {
-		this.precioVenta = precioVenta;
 	}
 
 
 
 	private static final long serialVersionUID = 1L;
-
 }

@@ -1,3 +1,5 @@
+package com.teamdev.opticacheguigo.opticacheguigo.util.paginator;
+
 
 import java.util.ArrayList;
 import java.util.List;
