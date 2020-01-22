@@ -20,8 +20,8 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "insumos") //INDICA EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
-public class Insumo implements Serializable {
+@Table(name = "armazon") //INDICA EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
+public class Armazon implements Serializable {
 
 	//INDICA LA LLAVE PRINCIPAL DE LA TABLA, POR DEFECTO EL NOMBRE SERÁ
 	//COMO EL DE LA PROPIEDAD
@@ -31,11 +31,17 @@ public class Insumo implements Serializable {
 
 	//SE PUEDEN DECLARAR PROPIEDADES DE LA COLUMNA, AQUI DICE QUE EL CAMPO insumo no recibe vacios
 	@NotEmpty
-	private String insumo;
+	private String codigo;
 	
 	//DE IGUAL MANERA LA DESCRIPCIÓN NO RECIBE VACÍOS
 	@NotEmpty
-	private String descrcipcion;
+	private String modelo;
+	
+	private String tamaño;
+	
+	private String color;
+	
+	private Integer existencia;
 
 	//AQUI TAMPOCO
 	@NotEmpty
@@ -68,8 +74,6 @@ public class Insumo implements Serializable {
 		this.id = id;
 	}
 
-	
-
 	public Date getCreateAt() {
 		return createAt;
 	}
@@ -79,14 +83,47 @@ public class Insumo implements Serializable {
 	}
 
 			
-	public String getDescrcipcion() {
-		return descrcipcion;
+	public String getCodigo() {
+		return codigo;
 	}
 
-	public void setDescrcipcion(String descrcipcion) {
-		this.descrcipcion = descrcipcion;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+	
+	public String getModelo() {
+		return modelo;
 	}
 
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	
+	public String getTamaño() {
+		return tamaño;
+	}
+
+	public void setTamaño(String tamaño) {
+		this.tamaño = tamaño;
+	}
+	
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public Integer getExistencia() {
+		return existencia;
+	}
+
+	public void setRxistencia(Integer existencia) {
+		this.existencia = existencia;
+	}
+
+	
 	public Integer getStatus() {
 		return status;
 	}
@@ -97,13 +134,7 @@ public class Insumo implements Serializable {
 
 	
 		
-	public String getInsumo() {
-		return insumo;
-	}
-
-	public void setInsumo(String insumo) {
-		this.insumo = insumo;
-	}
+	
 
 
 

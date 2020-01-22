@@ -20,8 +20,8 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "insumos") //INDICA EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
-public class Insumo implements Serializable {
+@Table(name = "micas") //INDICA EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
+public class Mica implements Serializable {
 
 	//INDICA LA LLAVE PRINCIPAL DE LA TABLA, POR DEFECTO EL NOMBRE SERÁ
 	//COMO EL DE LA PROPIEDAD
@@ -31,11 +31,17 @@ public class Insumo implements Serializable {
 
 	//SE PUEDEN DECLARAR PROPIEDADES DE LA COLUMNA, AQUI DICE QUE EL CAMPO insumo no recibe vacios
 	@NotEmpty
-	private String insumo;
+	private String mica;
 	
 	//DE IGUAL MANERA LA DESCRIPCIÓN NO RECIBE VACÍOS
 	@NotEmpty
-	private String descrcipcion;
+	private String material;
+	
+	private double precioCompra;
+	
+	private double precioVenta;
+	
+	private Integer existencia;
 
 	//AQUI TAMPOCO
 	@NotEmpty
@@ -68,8 +74,6 @@ public class Insumo implements Serializable {
 		this.id = id;
 	}
 
-	
-
 	public Date getCreateAt() {
 		return createAt;
 	}
@@ -79,14 +83,39 @@ public class Insumo implements Serializable {
 	}
 
 			
-	public String getDescrcipcion() {
-		return descrcipcion;
+	public double getPrecioCompra() {
+		return precioCompra;
 	}
 
-	public void setDescrcipcion(String descrcipcion) {
-		this.descrcipcion = descrcipcion;
+	public void setPrecioCompra(double precioCompra) {
+		this.precioCompra = precioCompra;
+	}
+	
+	public double getPrecioVneta() {
+		return precioVenta;
 	}
 
+	public void setPrecioVenta(double precioVenta) {
+		this.precioVenta = precioVenta;
+	}
+	
+	public String getMica() {
+		return mica;
+	}
+
+	public void setMica(String mica) {
+		this.mica = mica;
+	}
+
+	public Integer getExistencia() {
+		return existencia;
+	}
+
+	public void setRxistencia(Integer existencia) {
+		this.existencia = existencia;
+	}
+
+	
 	public Integer getStatus() {
 		return status;
 	}
@@ -97,12 +126,12 @@ public class Insumo implements Serializable {
 
 	
 		
-	public String getInsumo() {
-		return insumo;
+	public String getMaterial() {
+		return material;
 	}
 
-	public void setInsumo(String insumo) {
-		this.insumo = insumo;
+	public void setMaterial(String material) {
+		this.material = material;
 	}
 
 

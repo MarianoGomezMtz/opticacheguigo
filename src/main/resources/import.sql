@@ -25,6 +25,14 @@ INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Joe', 'B
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('John', 'Stiles', 'john.stiles@gmail.com', '2017-08-24', '');
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Richard', 'Roe', 'stiles.roe@gmail.com', '2017-08-25', '');
 
+/* Populate tabla micas */
+INSERT INTO micas (id, mica, precioCompra, precioVenta, existencia, create_at) VALUES('1', 'monofocal',20.00, 30.00, 20);
+INSERT INTO micas (id, mica, precioCompra, precioVenta, existencia, create_at) VALUES('2' 'bifocal', 20.00, 50.00, 20);
+
+/* Populate tabla micas */
+INSERT INTO armazon (id, codigo, modelo, tamaño, color, exitencia, create_at) VALUES('1' '02121', '2121', '021', '0021', 20);
+INSERT INTO armazon (id, codigo, modelo, tamaño, color, exitencia, create_at) VALUES('2', '2424', '2424', '0245', '02424', 25);
+
 /* Populate tabla productos */
 INSERT INTO productos (nombre, precio, create_at) VALUES('Panasonic Pantalla LCD', 259990, NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES('Sony Camara digital DSC-W320B', 123490, NOW());
