@@ -23,7 +23,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "armazon") //INDICA EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
 public class Armazon implements Serializable {
 
-	//INDICA LA LLAVE PRINCIPAL DE LA TABLA, POR DEFECTO EL NOMBRE SERÁ
+	//INDICA LA LLAVE PRINCIPAL DE LA TABLA, POR DEFECTO EL NOMBRE SERA
 	//COMO EL DE LA PROPIEDAD
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +33,11 @@ public class Armazon implements Serializable {
 	@NotEmpty
 	private String codigo;
 	
-	//DE IGUAL MANERA LA DESCRIPCIÓN NO RECIBE VACÍOS
+	//DE IGUAL MANERA LA DESCRIPCION NO RECIBE VACIOS
 	@NotEmpty
 	private String modelo;
 	
-	private String tamaño;
+	private String tamanio;
 	
 	private String color;
 	
@@ -99,12 +99,12 @@ public class Armazon implements Serializable {
 		this.modelo = modelo;
 	}
 	
-	public String getTamaño() {
-		return tamaño;
+	public String getTamanio() {
+		return tamanio;
 	}
 
-	public void setTamaño(String tamaño) {
-		this.tamaño = tamaño;
+	public void setTamanio(String tamanio) {
+		this.tamanio = tamanio;
 	}
 	
 	public String getColor() {

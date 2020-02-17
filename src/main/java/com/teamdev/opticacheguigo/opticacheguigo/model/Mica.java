@@ -23,7 +23,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "micas") //INDICA EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
 public class Mica implements Serializable {
 
-	//INDICA LA LLAVE PRINCIPAL DE LA TABLA, POR DEFECTO EL NOMBRE SERÁ
+	//INDICA LA LLAVE PRINCIPAL DE LA TABLA, POR DEFECTO EL NOMBRE SERA
 	//COMO EL DE LA PROPIEDAD
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class Mica implements Serializable {
 	@NotEmpty
 	private String mica;
 	
-	//DE IGUAL MANERA LA DESCRIPCIÓN NO RECIBE VACÍOS
+	//DE IGUAL MANERA LA DESCRIPCIÓN NO RECIBE VACIOS
 	@NotEmpty
 	private String material;
 	
