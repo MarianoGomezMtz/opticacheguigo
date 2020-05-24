@@ -1,7 +1,9 @@
 package com.teamdev.opticacheguigo.opticacheguigo.service.impl;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.service.Util;
 
 import org.json.JSONArray;
@@ -23,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
+import java.lang.reflect.Type;
 
 @Service
 public class UtilImpl<T> implements Util<T> {
@@ -189,7 +192,8 @@ public class UtilImpl<T> implements Util<T> {
 		// TODO Auto-generated method stub
 		String  output="";
 		HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-		String encoded = Base64.getEncoder().encodeToString((auth.getUsername()+":"+auth.getPassword()).getBytes(StandardCharsets.UTF_8));  //Java 8
+		//String encoded = Base64.getEncoder().encodeToString((auth.getUsername()+":"+auth.getPassword()).getBytes(StandardCharsets.UTF_8));  //Java 8
+		String encoded = Base64.getEncoder().encodeToString(("luismarianoazul@gmail.com"+":"+"test1").getBytes(StandardCharsets.UTF_8));  //Java 8
 		connection.setRequestProperty("Authorization", "Basic "+encoded);
 		connection.setRequestMethod("GET");
 		connection.setRequestProperty("Content-Type", "application/json");
@@ -255,7 +259,8 @@ public class UtilImpl<T> implements Util<T> {
 	            String input = util.objectToJson(obj);
 	            URL restServiceURL = new URL(uri);
 	            HttpURLConnection httpConnection = (HttpURLConnection) restServiceURL.openConnection();
-	            String encoded = Base64.getEncoder().encodeToString((userSession.getUsername()+":"+userSession.getPassword()).getBytes(StandardCharsets.UTF_8));  //Java 8
+	            //String encoded = Base64.getEncoder().encodeToString((userSession.getUsername()+":"+userSession.getPassword()).getBytes(StandardCharsets.UTF_8));  //Java 8
+	            String encoded = Base64.getEncoder().encodeToString(("luismarianoazul@gmail.com"+":"+"test1").getBytes(StandardCharsets.UTF_8));  //Java 8
 	            httpConnection.setRequestProperty("Authorization", "Basic "+encoded);
 	            httpConnection.setDoOutput(true);
 	            httpConnection.setRequestMethod("POST");
@@ -277,6 +282,16 @@ public class UtilImpl<T> implements Util<T> {
 	            ex.printStackTrace();
 	        }
 	        return output;
+	}
+
+
+	@Override
+	public List<ProductoDto> arrayJsonToList(String arrayJson) {
+		 Gson gson = new Gson();
+		 Type type = new TypeToken<List<ProductoDto>>(){}.getType();
+		 List<ProductoDto> objects = gson.fromJson(arrayJson, type);
+		   
+		 return objects;
 	}
 	
 

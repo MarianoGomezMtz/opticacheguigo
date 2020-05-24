@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.simple.parser.ParseException;
 
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 
 
 
@@ -23,6 +24,7 @@ public interface Util<T> {
     String sendGET(String url) throws IOException;
     String sendGetAuth(String url,AuthHeader auth) throws IOException;
     JSONArray stringToArrayJson(String result);
+    List<ProductoDto> arrayJsonToList(String arrayJson);
     
     
     

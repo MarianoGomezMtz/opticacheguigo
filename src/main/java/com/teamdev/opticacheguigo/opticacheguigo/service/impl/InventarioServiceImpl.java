@@ -1,25 +1,47 @@
 package com.teamdev.opticacheguigo.opticacheguigo.service.impl;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.service.InventarioService;
+import com.teamdev.opticacheguigo.opticacheguigo.service.Util;
+
+
+
 
 @Service
 public class InventarioServiceImpl implements InventarioService {
 
 	 @Value("${productoCategoria}")
-	 private String urlProductocategoria;
+	 private String urlProductoCategoria;
+	 
+	 @Autowired
+	 Util util;
 
 	@Override
-	public List<ProductoDto> productsByCatgory(Integer idCategory) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ProductoDto> productsByCatgory(Integer idCategory,AuthHeader userSession) {
+		String url =urlProductoCategoria+idCategory;
+		String result=null;
+		try {
+			 result = util.sendGetAuth(url, userSession);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		List<ProductoDto> productos =util.arrayJsonToList(result);
+		//System.out.println(productos.get(0).getColor());
+		
+		return productos;
 	}
 	
 	

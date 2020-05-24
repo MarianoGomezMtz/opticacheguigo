@@ -36,7 +36,7 @@ public class InventarioController {
 		AuthHeader userSesion = getUsuario();
 		System.out.println("usuario: "+userSesion.getUsername());
 		System.out.println("password: "+userSesion.getPassword());
-		return viewInventario.inventarioArmazon();
+		return viewInventario.inventarioArmazon(userSesion);
 		//return new ModelAndView("gestionArmazon");
 	}
 	
