@@ -289,9 +289,9 @@ public class UtilImpl<T> implements Util<T> {
 	public List<ProductoDto> arrayJsonToList(String arrayJson) {
 		 Gson gson = new Gson();
 		 Type type = new TypeToken<List<ProductoDto>>(){}.getType();
-		 List<ProductoDto> objects = gson.fromJson(arrayJson, type);
+		 //List<ProductoDto> objects = gson.fromJson(arrayJson, type);
 		   
-		 return objects;
+		 return gson.fromJson(arrayJson, type);
 	}
 	
 

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="modal-stock" class="app-main__inner">
+	
+	<div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Agregar Stock</h5>
+                                <div class="form-row">
+                            	 <div class="col-md-4 mb-3">
+                     	            <label for="validationCustom03">Armaz&oacute;n</label>
+                                            <input type="text" class="form-control" id="stockProducto" placeholder="Armazon" disabled="disabled">
+                                         
+                                 </div>
+                                 <div class="col-md-4 mb-3">
+                     	            <label for="validationCustom03">Stock</label>
+                                            <input type="text" class="form-control" id="stockExistencia" placeholder="stock" disabled="disabled">
+                                         
+                                 </div>
+                                 <div class="col-md-4 mb-3">
+                                            <label for="validationCustom04">Ingresar</label>
+                                            <input type="text" class="form-control numero" id="stockCantidad" placeholder="cantidad" maxlength="4">
+                                          <input type="text" class="form-control d-none" id="idProducto"  disabled="disabled">
+                              			  <input type="text" class="form-control d-none" id="idCategoria"  disabled="disabled">  
+                                 </div>
+                                 
+                                        
+                              </div>
+                              
+                                
+                              <button class="btn btn-primary" type="button" onclick="actualizarStock()">
+										Agregar
+                              </button>
+            
+                             </div>
+                             
+		</div>
+ </div>
+	
+
+</html>

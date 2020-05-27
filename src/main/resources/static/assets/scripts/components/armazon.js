@@ -1,24 +1,90 @@
+$(document).ready(function () {
 
-var modalAgregar = $('#modalAgregar').iziModal();
-var modalEditar = $('#modalEditar').iziModal();
+  $('.numero').mask('##0', {'translation': {0: {pattern: /[0-9*]/}}});
+  $('#tblProducto').dataTable({
+       searching: false,
+       lengthChange: false,
+       paging: true,
+       destroy:true,
+       info:false,
+       autoWidth: false,
+       responsive: true,
+       'columnDefs': [
+           {
+               'targets': 0,
+               'checkboxes': {
+                  'selectRow': false
+               }
+            }
+         ],
+         'select': {
+            'style': 'single'
+         }
+       
+   });
+  
+  
+  $('#tblProducto tbody').on( 'click', 'tr', function () {
+  	var table = $('#tblProducto').DataTable();
+      var rowData = table.row( this ).data();
+      $("#stockProducto").val(rowData[1]);
+      $("#stockExistencia").val(rowData[3]);
+      $("#idProducto").val(rowData[9]);
+      $("#idCategoria").val(rowData[10]);
+      $("#stockCantidad").val("");
+  } );
+   
+  
+  $("#modalAgregarStock").iziModal({
+	  width: 700,
+	  radius: 5,
+	  padding: 20,
+	  group: 'products',
+	  loop: true
+	});
+  
+        
+});
 
-function mensajeExito() {
-	swal("Operacion", "Realizada Correctamente", "success");
+function mensajeExito(mensaje) {
+	swal(mensaje, "success");
 }
-(function() {
-	'use strict';
-	window.addEventListener('load', function() {
-		// Fetch all the forms we want to apply custom Bootstrap validation styles to
-		var forms = document.getElementsByClassName('needs-validation');
-		// Loop over them and prevent submission
-		var validation = Array.prototype.filter.call(forms, function(form) {
-			form.addEventListener('submit', function(event) {
-				if (form.checkValidity() === false) {
-					event.preventDefault();
-					event.stopPropagation();
-				}
-				form.classList.add('was-validated');
-			}, false);
-		});
-	}, false);
-})();
+
+function actualizarStock()
+{
+    var stockProducto={
+        "idProducto":$("#idProducto").val(),
+        "idCategoria":$("#idCategoria").val(),
+        "cantidad":$("#stockCantidad").val()
+    }
+
+    $.ajax({
+        type: 'POST',
+        data: JSON.stringify(stockProducto),
+        url: './actualizaInventario',
+        dataType: 'json', 
+        contentType: 'application/json',
+        beforeSend: function () {
+			
+        },
+        success: function (data) {
+			console.log(data);
+            if(data.codigo=="1")
+            {
+                
+            	mensajeExito(data.mensaje);
+            }
+        },
+        error: function () {
+
+			/*
+            var dialog = bootbox.alert({
+                message: '<p class="text-center">' + "No se encontro resultados con los criterios introducidos" + '</p>',
+                closeButton: true
+            });
+            */
+        }
+    })
+
+}
+

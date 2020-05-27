@@ -2,3 +2,12 @@
 function mensaje(mensaje,tipo) {
 	swal("Operación",mensaje, tipo);
 }
+
+
+function ObtieneContex()
+{
+	var aux= window.location.pathname.split("/");
+	var context = aux[1];
+	var urlSvr =window.location.protocol + "//" + window.location.host + '/'+context;
+	return urlSvr;
+}

@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.request.StockProducto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
 import com.teamdev.opticacheguigo.opticacheguigo.service.InventarioService;
 import com.teamdev.opticacheguigo.opticacheguigo.service.Util;
 
@@ -23,6 +25,9 @@ public class InventarioServiceImpl implements InventarioService {
 
 	 @Value("${productoCategoria}")
 	 private String urlProductoCategoria;
+	 
+	 @Value("${actualizaStock}")
+	 private String urlActualizaStock;
 	 
 	 @Autowired
 	 Util util;
@@ -42,6 +47,19 @@ public class InventarioServiceImpl implements InventarioService {
 		//System.out.println(productos.get(0).getColor());
 		
 		return productos;
+	}
+
+	@Override
+	public ResponseGeneric actualizarStockProducto(StockProducto stockProducto,AuthHeader userSession) {
+		String url =urlProductoCategoria+stockProducto.getIdProducto()+"/"+stockProducto.getIdCategoria()+"/"+stockProducto.getCantidad();
+		String result=null;
+		try {
+			 result = util.sendGetAuth(url, userSession);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return (ResponseGeneric) util.jsonToObject(ResponseGeneric.class, result);
 	}
 	
 	
