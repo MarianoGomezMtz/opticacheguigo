@@ -214,7 +214,7 @@ public class UtilImpl<T> implements Util<T> {
 			return output;
 		} else {
 			System.out.println("GET request not worked");
-			return "ERROR AL CARGAR EL CATALOGO";
+			return "ERROR";
 		}
 		
 		

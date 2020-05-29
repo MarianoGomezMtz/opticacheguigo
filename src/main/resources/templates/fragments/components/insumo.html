@@ -2,17 +2,17 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="armazon" class="app-main__inner">
+<div th:fragment="insumo" class="app-main__inner">
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="pe-7s-glasses icon-gradient bg-mean-fruit"> </i>
-<!--                     <i class="pe-7s-look icon-gradient bg-mean-fruit"> </i> -->
+<!--                     <i class="pe-7s-glasses icon-gradient bg-mean-fruit"> </i> -->
+                    <i class="pe-7s-look icon-gradient bg-mean-fruit"> </i>
                     
                 </div>
                 <div>
-                      Inventario de Armaz&oacute;nes
+                      Inventario de Insumos
                      <div class="page-title-subheading"></div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
     </div>
     <div class="main-card mb-3 card">
         <div class="card-body">
-            <h5 class="card-title">Listado de Armazones</h5>
+            <h5 class="card-title">Listado de Insumos</h5>
            
                 <div class="col-lg-12">
                                
@@ -30,12 +30,8 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Clave</th>
-                                                    <th>Armaz&oacute;n</th>
-                                                    <th>Tipo</th>
-                                                    <th>Stock</th>
-                                                    <th>Modelo</th>
-                                                    <th>Color</th>
-                                                    <th>Tama&ntilde;o</th>
+                                                    <th>Insumo</th>
+                                                	<th>Stock</th>
                                                     <th>Material</th>
                                                     <th>Acci&oacute;n</th>
                                                     <th class="d-none">producto</th>
@@ -46,11 +42,8 @@
                                                 	<tr th:each="producto : ${productos}">
 														<td th:text="${producto.clave}"></td>
 														<td th:text="${producto.nombre}"></td>
-														<td th:text="${producto.tipo}"></td>
 														<td th:text="${producto.existencia}"></td>
-														<td th:text="${producto.modelo}"></td>
-														<td th:text="${producto.color}"></td>
-														<td th:text="${producto.tamanio}"></td>
+														
 														<td th:text="${producto.material}"></td>
 														<td>
 															<div class="row">

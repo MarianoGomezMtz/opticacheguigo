@@ -13,12 +13,13 @@ public class ViewsInventarioServiceImpl implements ViewsInventarioService {
 	@Autowired
 	InventarioServiceImpl inventarioService;
 	
-	@Override
-	public ModelAndView inventarioArmazon(AuthHeader userSesion) {
+	
+	public ModelAndView inventarioProducto(AuthHeader userSesion, Integer idCategoria,String view) {
 		
-		return new ModelAndView("gestionArmazon").addObject("productos", inventarioService.productsByCatgory(1, userSesion));
+		return new ModelAndView(view).addObject("productos", inventarioService.productsByCatgory(idCategoria, userSesion));
 	}
 
+	/*
 	@Override
 	public ModelAndView inventarioMica(AuthHeader userSesion) {
 		return new ModelAndView("gestionMicas").addObject("productos", inventarioService.productsByCatgory(2, userSesion));
@@ -28,6 +29,6 @@ public class ViewsInventarioServiceImpl implements ViewsInventarioService {
 	public ModelAndView inventarioInsumo(AuthHeader userSesion) {
 		return new ModelAndView("gestionInsumo").addObject("productos", inventarioService.productsByCatgory(3, userSesion));
 	}
-	
+	*/
 
 }

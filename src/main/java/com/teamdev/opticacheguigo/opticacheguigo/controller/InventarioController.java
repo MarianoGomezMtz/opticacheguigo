@@ -32,6 +32,12 @@ import com.teamdev.opticacheguigo.opticacheguigo.service.ViewsInventarioService;
 @RequestMapping("/inventario")
 public class InventarioController {
 	
+	
+	private static final String VIEW_ARMAZON="gestionArmazon";
+	private static final String VIEW_MICA="gestionMicas";
+	private static final String VIEW_INSUMO="gestionInsumo";
+	
+	
 	@Autowired
 	ViewsInventarioService viewInventario;
 	
@@ -50,15 +56,21 @@ public class InventarioController {
 	
 	@GetMapping("/armazones")
 	public ModelAndView viewArmazon() {
-		//AuthHeader userSesion = getUsuario();
-		return viewInventario.inventarioArmazon(getUsuario());
-		//return new ModelAndView("gestionArmazon");
+		
+		return viewInventario.inventarioProducto(getUsuario(),1,VIEW_ARMAZON);
+		
 	}
 	
 	@GetMapping("/micas")
 	public ModelAndView viewMicas() {
 		
-		return new ModelAndView("gestionMicas");
+		return viewInventario.inventarioProducto(getUsuario(),2,VIEW_MICA);
+	}
+	
+	@GetMapping("/insumos")
+	public ModelAndView viewInsumos() {
+		
+		return viewInventario.inventarioProducto(getUsuario(),3,VIEW_INSUMO);
 	}
 	
 	

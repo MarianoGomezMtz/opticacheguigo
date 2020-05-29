@@ -1,6 +1,7 @@
 package com.teamdev.opticacheguigo.opticacheguigo.service.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -44,12 +45,13 @@ public class InventarioServiceImpl implements InventarioService {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
 		
-		List<ProductoDto> productos =util.arrayJsonToList(result);
+		//List<ProductoDto> productos =util.arrayJsonToList(result);
 		//System.out.println(productos.get(0).getColor());
 		
-		return productos;
+		return (result.equals("ERROR")?new ArrayList<>():util.arrayJsonToList(result));
 	}
 
 	@Override

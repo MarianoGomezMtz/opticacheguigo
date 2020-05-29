@@ -24,15 +24,15 @@
 
         </div>
         <div class="app-main__outer">
-            <div th:replace="fragments/components/armazon::armazon">
+            <div th:replace="fragments/components/insumo::insumo">
 
             </div>
             <div id="modalAgregarStock" data-iziModal-title="Stock" data-iziModal-subtitle="Agregar Stock" > 
-   				<div th:replace="commons/agregarStock::modal-stock('Armaz&oacute;n')">    	
+   				<div th:replace="commons/agregarStock::modal-stock('Insumo')">    	
                 </div>
 			</div> 
 			<div id="modalDetalleArmazon" data-iziModal-title="Armaz&oacute;n" data-iziModal-subtitle="Detalle Armaz&oacute;n" > 
-   				<div th:replace="commons/detalleArmazon::modal-detalleAr('Armazon')">    	
+   				<div th:replace="commons/detalleInsumo::modal-detalleIn('Insumo')">    	
                 </div>
 			</div>          
         </div>
@@ -41,6 +41,6 @@
 </div>
 <div th:replace="fragments/jsGeneric::javascripts">
 </div>
-<script type="text/javascript" th:src="@{/assets/scripts/components/armazon.js}"></script>
+<script type="text/javascript" th:src="@{/assets/scripts/components/insumo.js}"></script>
 </body>
 </html>

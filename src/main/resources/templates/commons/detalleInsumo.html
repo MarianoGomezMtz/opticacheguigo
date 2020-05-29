@@ -2,45 +2,32 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="modal-detalleAr(categoria)" class="app-main__inner">
+<div th:fragment="modal-detalleIn(categoria)" class="app-main__inner">
 	
 	<div class="main-card mb-3 card">
                             <div class="card-body">
                                 <h5 class="card-title" th:text="${'Detalle ' + categoria}"></h5>
                                 <div class="form-row">
                                 	<div class="row">
-                                		<div class="col-md-4 mb-3">
+                                		<div class="col-md-4 mb-6">
                      	            		<label for="detCodigo">C&oacute;digo:</label>
                                             <input type="text" class="form-control" id="detCodigo"  disabled="disabled">
                                          
                                  		</div>
-                                 		<div class="col-md-4 mb-3">
+                                 		<div class="col-md-4 mb-6">
                      	            		<label for="detCategoria" th:text="${categoria +':'}"></label>
                                             <input type="text" class="form-control" id="detCategoria"  disabled="disabled">
                                          
                                  		</div>
-                                 		<div class="col-md-4 mb-3" th:if="${categoria == 'Armazon'}">
-                                       	     <label for="detModelo">Modelo:</label>
-                                        	 <input type="text" class="form-control " id="detModelo" disabled="disabled">
-                                        </div>		
-                                	</div>
-                                	<div class="row">
-                                		<div class="col-md-4 mb-3">
-                     	            		<label for="detColor">Color:</label>
-                                            <input type="text" class="form-control" id="detColor"  disabled="disabled">
-                                         
-                                 		</div>
-                                 		<div class="col-md-4 mb-3">
-                     	            		<label for="detTamanio">Tama&ntilde;o:</label>
-                                            <input type="text" class="form-control" id="detTamanio"  disabled="disabled">
-                                         
-                                 		</div>
-                                 		<div class="col-md-4 mb-3">
+                                 		                                 		
+                                 		<div class="col-md-4 mb-6">
                                        	     <label for="detMaterial">Material</label>
                                         	 <input type="text" class="form-control " id="detMaterial" disabled="disabled">
                                         </div>
-                                		
+                                 			
                                 	</div>
+                                	
+                                	<br/>
                                 	<div class="row">
                                 		<div class="col-md-4 mb-4">
                      	            		<label for="detPrecioC">Precio Compra</label>

@@ -28,9 +28,9 @@ $(document).ready(function () {
   	var table = $('#tblProducto').DataTable();
       var rowData = table.row( this ).data();
       $("#stockProducto").val(rowData[1]);
-      $("#stockExistencia").val(rowData[3]);
-      $("#idProducto").val(rowData[9]);
-      $("#idCategoria").val(rowData[10]);
+      $("#stockExistencia").val(rowData[2]);
+      $("#idProducto").val(rowData[5]);
+      $("#idCategoria").val(rowData[6]);
       $("#stockCantidad").val("");
   } );
    
