@@ -61,7 +61,9 @@
 																</div>
 																<div class="font-icon-md">
 																	  	<button type="button" data-toggle="tooltip" title="Ver detalle" data-placement="bottom" class="btn-shadow mr-3 btn btn-info"
-																	  	data-izimodal-open="#modalAgregarStock" data-izimodal-transitionin="fadeInDown">
+																	  	data-izimodal-open="#modalDetalleArmazon" data-izimodal-transitionin="fadeInDown" th:attr="onclick=|detalleProducto('${producto.id}')|" >
+<!-- 																	  	th:onclick="detalleProducto(${producto.id})" -->
+																	  	
                                         									<i class="pe-7s-look pe-2x pe-va"></i>
                                     									</button>
 																</div>

@@ -27,8 +27,12 @@
             <div th:replace="fragments/components/armazon::armazon">
 
             </div>
-            <div id="modalAgregarStock"  data-iziModal-title="Stock"  data-iziModal-subtitle="Agregar Stock" > 
-   				<div th:replace="commons/agregarStock::modal-stock">    	
+            <div id="modalAgregarStock" data-iziModal-title="Stock" data-iziModal-subtitle="Agregar Stock" > 
+   				<div th:replace="commons/agregarStock::modal-stock('Armaz&oacute;n')">    	
+                </div>
+			</div> 
+			<div id="modalDetalleArmazon" data-iziModal-title="Armaz&oacute;n" data-iziModal-subtitle="Detalle Armaz&oacute;n" > 
+   				<div th:replace="commons/detalleArmazon::modal-detalleAr">    	
                 </div>
 			</div>          
         </div>

@@ -2,15 +2,16 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="modal-stock" class="app-main__inner">
+<div th:fragment="modal-stock(categoria)" class="app-main__inner">
 	
 	<div class="main-card mb-3 card">
                             <div class="card-body">
                                 <h5 class="card-title">Agregar Stock</h5>
                                 <div class="form-row">
+                                <div class="row">
                             	 <div class="col-md-4 mb-3">
-                     	            <label for="validationCustom03">Armaz&oacute;n</label>
-                                            <input type="text" class="form-control" id="stockProducto" placeholder="Armazon" disabled="disabled">
+                     	            <label for="validationCustom03" th:text="${categoria}"></label>
+                                            <input type="text" class="form-control" id="stockProducto" th:placeholder="${categoria}" disabled="disabled">
                                          
                                  </div>
                                  <div class="col-md-4 mb-3">
@@ -19,13 +20,13 @@
                                          
                                  </div>
                                  <div class="col-md-4 mb-3">
-                                            <label for="validationCustom04">Ingresar</label>
-                                            <input type="text" class="form-control numero" id="stockCantidad" placeholder="cantidad" maxlength="4">
+                                          <label for="validationCustom04">Agregar Stock</label>
+                                          <input type="text" class="form-control numero" id="stockCantidad" placeholder="cantidad" maxlength="4">
                                           <input type="text" class="form-control d-none" id="idProducto"  disabled="disabled">
                               			  <input type="text" class="form-control d-none" id="idCategoria"  disabled="disabled">  
                                  </div>
                                  
-                                        
+                                  </div>      
                               </div>
                               
                                 

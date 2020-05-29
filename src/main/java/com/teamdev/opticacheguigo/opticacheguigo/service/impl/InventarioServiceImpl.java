@@ -29,6 +29,9 @@ public class InventarioServiceImpl implements InventarioService {
 	 @Value("${actualizaStock}")
 	 private String urlActualizaStock;
 	 
+	 @Value("${detailProducto}")
+	 private String urlDetalleProducto;
+	 
 	 @Autowired
 	 Util util;
 
@@ -51,7 +54,7 @@ public class InventarioServiceImpl implements InventarioService {
 
 	@Override
 	public ResponseGeneric actualizarStockProducto(StockProducto stockProducto,AuthHeader userSession) {
-		String url =urlProductoCategoria+stockProducto.getIdProducto()+"/"+stockProducto.getIdCategoria()+"/"+stockProducto.getCantidad();
+		String url =urlActualizaStock+stockProducto.getIdProducto()+"/"+stockProducto.getIdCategoria()+"/"+stockProducto.getCantidad();
 		String result=null;
 		try {
 			 result = util.sendGetAuth(url, userSession);
@@ -59,7 +62,22 @@ public class InventarioServiceImpl implements InventarioService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return (ResponseGeneric) util.jsonToObject(ResponseGeneric.class, result);
+		return (ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result);
+		//return respuesta;
+	}
+
+	@Override
+	public ProductoDto detalleProducto(String idProducto, AuthHeader userSession) {
+		String url =urlDetalleProducto+idProducto;
+		String result=null;
+		try {
+			 result = util.sendGetAuth(url, userSession);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return (ProductoDto) util.jsonToObject(new ProductoDto(), result);
+		
 	}
 	
 	

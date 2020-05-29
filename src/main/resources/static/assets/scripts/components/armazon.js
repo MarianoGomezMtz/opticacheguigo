@@ -39,15 +39,21 @@ $(document).ready(function () {
 	  width: 700,
 	  radius: 5,
 	  padding: 20,
-	  group: 'products',
-	  loop: true
+	  loop: false
+	});
+  
+  $("#modalDetalleArmazon").iziModal({
+	  width: 700,
+	  radius: 5,
+	  padding: 10,
+	  loop: false
 	});
   
         
 });
 
 function mensajeExito(mensaje) {
-	swal(mensaje, "success");
+	swal("Exito",mensaje, "success");
 }
 
 function actualizarStock()
@@ -68,12 +74,54 @@ function actualizarStock()
 			
         },
         success: function (data) {
-			console.log(data);
+        	$('#modalAgregarStock').iziModal('close');
+			//console.log(data);
+        	
             if(data.codigo=="1")
-            {
-                
             	mensajeExito(data.mensaje);
-            }
+            
+        },
+        error: function () {
+
+			/*
+            var dialog = bootbox.alert({
+                message: '<p class="text-center">' + "No se encontro resultados con los criterios introducidos" + '</p>',
+                closeButton: true
+            });
+            */
+        },
+        complete: function() {
+        	setTimeout(function(){
+        		location.reload();
+        	}, 2400);
+        	
+		}
+    })
+
+}
+
+function detalleProducto(id)
+{
+	
+    //var idProducto= $("#idProducto").val();   
+
+    $.ajax({
+        type: 'GET',
+        url: './detailproducto/'+id,
+        beforeSend: function () {
+			
+        },
+        success: function (data) {
+        	$("#detCodigo").val(data.clave);
+        	$("#detArmazon").val(data.nombre);
+        	$("#detModelo").val(data.modelo);
+        	$("#detColor").val(data.color);
+        	$("#detTamanio").val(data.tamanio);
+        	$("#detMaterial").val(data.material);
+        	$("#detPrecioC").val(data.precioCompra);
+        	$("#detPrecioV").val(data.precioVenta);
+        	$("#detExistencia").val(data.existencia);
+        	
         },
         error: function () {
 

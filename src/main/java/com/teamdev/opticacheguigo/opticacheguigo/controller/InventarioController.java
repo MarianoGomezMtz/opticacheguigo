@@ -1,21 +1,27 @@
 package com.teamdev.opticacheguigo.opticacheguigo.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.StockProducto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.UsuarioPassEncrypt;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
 import com.teamdev.opticacheguigo.opticacheguigo.service.InventarioService;
 import com.teamdev.opticacheguigo.opticacheguigo.service.UsuarioService;
@@ -58,8 +64,21 @@ public class InventarioController {
 	
 	@PostMapping(path = "/actualizaInventario", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseGeneric actualizaInventario(@RequestBody StockProducto stockProducto ) {
-		return inventarioService.actualizarStockProducto(stockProducto, getUsuario());
+		ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
+		return respuesta;
 	}
+	
+	@GetMapping("/detailproducto/{idProducto}")
+    public ProductoDto detailProducto(@PathVariable(name="idProducto") String idProducto) {
+    	//return productoService.getProductoId(idProducto);
+       return inventarioService.detalleProducto(idProducto, getUsuario());
+    }
+	
+	@GetMapping("/productos/{idCategoria}")
+    public List<ProductoDto> getProductos(@PathVariable(name="idCategoria") Integer idCategoria) {
+    	//return productoService.getProductoId(idProducto);
+       return inventarioService.productsByCatgory(idCategoria, getUsuario());
+    }
 	
 	@GetMapping("/agenda")
 	public ModelAndView viewAgenda() {
