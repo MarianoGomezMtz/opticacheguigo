@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.StockProducto;

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="modal-addArmazon" class="app-main__inner">
+	
+		<div class="main-card mb-3 card">
+        		<div class="card-body">
+                	<h5 class="card-title">Regitrar Armaz&oacute;n</h5>
+                    	<form class="needs-validation" novalidate action="#" th:action="@{/catalogo/guardar/armazon}" th:object="${producto}" method="post">
+                        	<div class="form-row">
+                            	<div class="col-md-4 mb-3">
+                                	<label for="clave">Clave</label>
+                                    	<input type="text" class="form-control" name="clave" id="clave" placeholder="Clave" value="" required>
+                                        	<div class="valid-feedback">
+                                                Clave v&aacute;lida
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                La clave es requerida
+                                            </div>
+                                 </div>
+                                 <div class="col-md-4 mb-3">
+                                 	<label for="nombre">Armaz&oacute;n</label>
+                                    	<input type="text" class="form-control" id="nombre" name="nombre" placeholder="armazon" value="" required>
+                                        	<div class="valid-feedback">
+                                                Clave v&aacute;lida
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                                El armaz&oacute;n es requerido.
+                                            </div>
+                                 </div>
+                                 <div class="col-md-4 mb-3">
+                                 	<label for="modelo">Modelo</label>
+                                    	<input type="text" class="form-control" id="modelo" name="modelo" placeholder="modelo" value="" required>
+                                        	<div class="valid-feedback">
+                                                El modelo es valido
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                                El modelo es requerido
+                                            </div>
+                                 </div>
+                              </div>
+                                   <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="color">Color</label>
+                                            <input type="text" class="form-control" id="color" placeholder="color">
+                                            
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="tipo">Tipo</label>
+                                            <input type="text" class="form-control" id="tipo" name="tipo" placeholder="tipo" >
+             							</div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="material">Material</label>
+                                            <select name="material" id="material" class="mb-2 form-control" required>
+                                                        <option value=0>SELECCIONE UNA OPCI&Oacute;N</option>
+                                                        <option value=1>CR39</option>
+                                                        <option value=2>MICRO FIBRA</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                El material es requerido
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary" type="submit">Registrar</button>
+                               </form>
+            
+                               <script>
+                                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                                    (function() {
+                                        'use strict';
+                                        window.addEventListener('load', function() {
+                                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                            var forms = document.getElementsByClassName('needs-validation');
+                                            // Loop over them and prevent submission
+                                            var validation = Array.prototype.filter.call(forms, function(form) {
+                                                form.addEventListener('submit', function(event) {
+                                                    if (form.checkValidity() === false) {
+                                                        event.preventDefault();
+                                                        event.stopPropagation();
+                                                    }
+                                                    form.classList.add('was-validated');
+                                                }, false);
+                                            });
+                                        }, false);
+                                    })();
+                                </script>
+                            </div>
+                        </div>
+ </div>
+	
+
+</html>

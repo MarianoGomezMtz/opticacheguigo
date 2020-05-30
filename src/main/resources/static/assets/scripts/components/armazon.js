@@ -41,7 +41,7 @@ $(document).ready(function () {
 	  padding: 20,
 	  loop: false
 	});
-  
+    
   $("#modalDetalleArmazon").iziModal({
 	  width: 700,
 	  radius: 5,
