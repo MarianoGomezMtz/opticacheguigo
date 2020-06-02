@@ -35,6 +35,40 @@
 </div>
 <div th:replace="fragments/jsGeneric::javascripts">
 </div>
-<!-- <script type="text/javascript" th:src="@{/assets/scripts/components/armazon.js}"></script> -->
+ 
+ <script th:inline="javascript">
+ 
+     var operacion = [[${codOperacion}]] ;
+     var msj = [[${mensaje}]] ;
+     var producto = [[${productoError}]] ;
+     
+     if(operacion==1){
+   	  mensajeExito(msj);
+     }else if(operacion==2){
+   	  mensajeError(msj);
+     }
+     
+     console.log(msj);
+     
+     function mensajeExito(mensaje) {
+    		swal("Exito",mensaje, "success");
+    	}
+
+
+    	function mensajeError(mensaje) {
+    		swal("Intente nuevamente",mensaje, "error");
+    	}
+
+    	function asignaParametros(objProducto) {
+    		$("#nombre").val(objProducto.nombre);
+    		$("#clave").val(objProducto.clave);
+    		$("#modelo").val(objProducto.modelo);
+    		$("idMaterial").val(objProducto.idMaterial);
+    		
+    	}
+
+</script>
+
+<script type="text/javascript" th:src="@{/assets/scripts/components/armazon.js}"></script>
 </body>
 </html>

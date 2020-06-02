@@ -280,6 +280,7 @@ public class UtilImpl<T> implements Util<T> {
 
 	        } catch (Exception ex) {
 	            ex.printStackTrace();
+	        	return "ERROR";
 	        }
 	        return output;
 	}

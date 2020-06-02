@@ -6,12 +6,12 @@
 	
 		<div class="main-card mb-3 card">
         		<div class="card-body">
-                	<h5 class="card-title">Regitrar Armaz&oacute;n</h5>
+                	<h5 class="card-title">Registrar Armaz&oacute;n</h5>
                     	<form class="needs-validation" novalidate action="#" th:action="@{/catalogo/guardar/armazon}" th:object="${producto}" method="post">
                         	<div class="form-row">
                             	<div class="col-md-4 mb-3">
                                 	<label for="clave">Clave</label>
-                                    	<input type="text" class="form-control" name="clave" id="clave" placeholder="Clave" value="" required>
+                                    	<input type="text" class="form-control" style="text-transform: uppercase;" name="clave" id="clave" placeholder="Clave" value="" required>
                                         	<div class="valid-feedback">
                                                 Clave v&aacute;lida
                                             </div>
@@ -21,7 +21,7 @@
                                  </div>
                                  <div class="col-md-4 mb-3">
                                  	<label for="nombre">Armaz&oacute;n</label>
-                                    	<input type="text" class="form-control" id="nombre" name="nombre" placeholder="armazon" value="" required>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="nombre" name="nombre" placeholder="armazon" value="" required>
                                         	<div class="valid-feedback">
                                                 Clave v&aacute;lida
                                             </div>
@@ -31,7 +31,7 @@
                                  </div>
                                  <div class="col-md-4 mb-3">
                                  	<label for="modelo">Modelo</label>
-                                    	<input type="text" class="form-control" id="modelo" name="modelo" placeholder="modelo" value="" required>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="modelo" name="modelo" placeholder="modelo" value="" required>
                                         	<div class="valid-feedback">
                                                 El modelo es valido
                                             </div>
@@ -40,19 +40,19 @@
                                             </div>
                                  </div>
                               </div>
-                                   <div class="form-row">
-                                        <div class="col-md-6 mb-3">
+                              <div class="form-row">
+                              		<div class="col-md-3 mb-3">
                                             <label for="color">Color</label>
-                                            <input type="text" class="form-control" id="color" placeholder="color">
+                                            <input type="text" style="text-transform: uppercase;" class="form-control" id="color" name="color" placeholder="color">
                                             
-                                        </div>
-                                        <div class="col-md-3 mb-3">
+                                    </div>
+                                    <div class="col-md-3 mb-3">
                                             <label for="tipo">Tipo</label>
-                                            <input type="text" class="form-control" id="tipo" name="tipo" placeholder="tipo" >
-             							</div>
-                                        <div class="col-md-3 mb-3">
+                                            <input type="text" style="text-transform: uppercase;" class="form-control" id="tipo" name="tipo" placeholder="tipo" >
+             						</div>
+                                    <div class="col-md-6 mb-3">
                                             <label for="material">Material</label>
-                                            <select name="material" id="material" class="mb-2 form-control" required>
+                                            <select name="idMaterial" id="idMaterial" class="mb-2 form-control" required>
                                                         <option value=0>SELECCIONE UNA OPCI&Oacute;N</option>
                                                         <option value=1>CR39</option>
                                                         <option value=2>MICRO FIBRA</option>
@@ -60,11 +60,52 @@
                                             <div class="invalid-feedback">
                                                 El material es requerido
                                             </div>
-                                        </div>
+                                     </div>
+                                </div>
+                                <div class="form-row">
+                                	<div class="col-md-3 mb-3">
+                                            <label for="precioCompra">Tama&ntilde;o</label>
+                                            <input type="text" style="text-transform: uppercase;" class="form-control" id="tamanio" name="tamanio" placeholder="tama&ntilde;o">
+                                                                                       
                                     </div>
+                              		<div class="col-md-3 mb-3">
+                                            <label for="precioCompra">Precio de Compra</label>
+                                            <input type="text" class="form-control" id="precioCompra" name="precioCompra" placeholder="" required>
+                                            <div class="valid-feedback">
+                                               Precio de compra valido
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                        	  Por favor ingrese un valor entero o decimal
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                            <label for="precioVenta">Precio de Venta</label>
+                                            <input type="text" class="form-control" id="precioVenta" name="precioVenta" placeholder="" required>
+                                            <div class="valid-feedback">
+                                                Precio de venta valido
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                        	 	Por favor ingrese un valor entero o decimal
+                                               
+                                            </div>
+             						</div>
+             						<div class="col-md-3 mb-3">
+                                            <label for="existencia">Existencia</label>
+                                            <input type="text" class="form-control" id="existencia" name="existencia" placeholder="existencia" required>
+                                            <div class="valid-feedback">
+                                             	Cantidad valida
+                                                
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                               Por favor ingrese un valor entero
+                                            </div>
+             						</div>
                                     
-                                    <button class="btn btn-primary" type="submit">Registrar</button>
-                               </form>
+                                </div>
+                                    
+                               <button class="btn btn-primary" type="submit">Registrar</button>
+                          </form>
             
                                <script>
                                     // Example starter JavaScript for disabling form submissions if there are invalid fields

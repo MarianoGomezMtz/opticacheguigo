@@ -24,8 +24,10 @@ import com.teamdev.opticacheguigo.opticacheguigo.dto.request.StockProducto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.UsuarioPassEncrypt;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
+import com.teamdev.opticacheguigo.opticacheguigo.service.CatalogoService;
 import com.teamdev.opticacheguigo.opticacheguigo.service.InventarioService;
 import com.teamdev.opticacheguigo.opticacheguigo.service.UsuarioService;
+import com.teamdev.opticacheguigo.opticacheguigo.service.ViewsCatalogoService;
 import com.teamdev.opticacheguigo.opticacheguigo.service.ViewsInventarioService;
 
 
@@ -34,24 +36,30 @@ import com.teamdev.opticacheguigo.opticacheguigo.service.ViewsInventarioService;
 public class CatalogoController {
 	
 	
-	private static final String VIEW_ARMAZON="gestionArmazon";
-	private static final String VIEW_MICA="gestionMicas";
-	private static final String VIEW_INSUMO="gestionInsumo";
+	private static final String VIEW_ARMAZON="catalogoArmazon";
+	private static final String VIEW_MICA="catalogoMica";
+	private static final String VIEW_INSUMO="catalogoInsumo";
 	
 	
 	@Autowired
 	ViewsInventarioService viewInventario;
 	
 	@Autowired
-	InventarioService inventarioService; 
+	ViewsCatalogoService catalogoService; 
 	
 	@Autowired
 	UsuarioService usuarioService;
 	
+	@Autowired
+	InventarioService inventarioService;
+	
 	@GetMapping("/armazon")
 	public ModelAndView viewArmazon() {
 		
-		return new ModelAndView("catalogoArmazon");
+		return new ModelAndView(VIEW_ARMAZON).addObject("codOperacion",3)
+				.addObject("mensaje","")
+				.addObject("productoError",new ProductoDto())
+				.addObject("productos", inventarioService.productsByCatgory(1, getUsuario()));
 	}
 	
 	@GetMapping("/micas")
@@ -68,30 +76,11 @@ public class CatalogoController {
 	}
 	
 	@PostMapping(path = "/guardar/armazon")
-	public ResponseGeneric registrarArmazon(@ModelAttribute ProductoDto producto ) {
+	public ModelAndView registrarArmazon(@ModelAttribute ProductoDto producto ) {
 		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
-		System.out.println(producto.getClave());
-		return null;
+		return catalogoService.registroProducto( getUsuario(),producto,VIEW_ARMAZON);
 	}
 	
-	
-	@PostMapping(path = "/actualizaInventario", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseGeneric actualizaInventario(@RequestBody StockProducto stockProducto ) {
-		ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
-		return respuesta;
-	}
-	
-	@GetMapping("/detailproducto/{idProducto}")
-    public ProductoDto detailProducto(@PathVariable(name="idProducto") String idProducto) {
-    	//return productoService.getProductoId(idProducto);
-       return inventarioService.detalleProducto(idProducto, getUsuario());
-    }
-	
-	@GetMapping("/productos/{idCategoria}")
-    public List<ProductoDto> getProductos(@PathVariable(name="idCategoria") Integer idCategoria) {
-    	//return productoService.getProductoId(idProducto);
-       return inventarioService.productsByCatgory(idCategoria, getUsuario());
-    }
 	
 	
 	public AuthHeader getUsuario() {
