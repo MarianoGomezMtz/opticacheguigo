@@ -29,8 +29,8 @@ $(document).ready(function () {
       var rowData = table.row( this ).data();
       $("#stockProducto").val(rowData[1]);
       $("#stockExistencia").val(rowData[3]);
-      $("#idProducto").val(rowData[9]);
-      $("#idCategoria").val(rowData[10]);
+      $("#idProducto").val(rowData[8]);
+      $("#idCategoria").val(rowData[9]);
       $("#stockCantidad").val("");
   } );
    

@@ -65,11 +65,12 @@ function confirmaEliminar(id) {
 function eliminaProducto(id)
 {
 	
-    //var idProducto= $("#idProducto").val();   
+	var uri= ObtieneContex()+'/catalogo/elimina/producto/'+id;
+    uri=uri.replace("/catalogo/catalogo/", "/catalogo/");
 
     $.ajax({
         type: 'GET',
-        url: ObtieneContex()+'/catalogo/elimina/producto/'+id,
+        url: uri,
         beforeSend: function () {
 			
         },
@@ -103,10 +104,11 @@ function detalleProducto(id)
 	
 	// $("#formMdfProduct")[0].reset();
    
-    console.log(ObtieneContex()+'/catalogo/detailproducto/'+id);
+    var uri=ObtieneContex()+'/catalogo/detailproducto/'+id;
+    uri=uri.replace("/catalogo/catalogo/", "/catalogo/");
     $.ajax({
         type: 'GET',
-        url: ObtieneContex()+'/catalogo/detailproducto/'+id,
+        url: uri,
         beforeSend: function () {
 			
         },
@@ -141,6 +143,7 @@ function detalleProducto(id)
 
 
 function actualizaProducto(){
+	
 	var productoDto={
 			"id":$("#actId").val(data.id),
         	"idCategoria":$("#actIdCategoria").val(),

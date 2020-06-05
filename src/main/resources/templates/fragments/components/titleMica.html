@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="armazon" class="app-main__inner">
+<div th:fragment="mica" class="app-main__inner">
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
@@ -31,7 +31,7 @@
                         </div>
                         <div data-parent="#accordion" id="collapseOne1" aria-labelledby="headingOne" class="collapse show">
                         	<div class="card-body">
-                        		<div th:replace="commons/registraArmazon::modal-addArmazon">
+                        		<div th:replace="commons/registraMica::modal-addMica">
 								</div> 
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div data-parent="#accordion" id="collapseOne2" class="collapse">
                         	<div class="card-body">
-                        		<div th:replace="fragments/components/tblArmazon::tblArmazon">
+                        		<div th:replace="fragments/components/tblMicas::tblArmazon">
 
             					</div>
                              </div>
