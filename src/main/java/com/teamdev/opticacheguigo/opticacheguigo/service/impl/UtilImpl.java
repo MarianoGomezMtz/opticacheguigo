@@ -260,7 +260,7 @@ public class UtilImpl<T> implements Util<T> {
 	            URL restServiceURL = new URL(uri);
 	            HttpURLConnection httpConnection = (HttpURLConnection) restServiceURL.openConnection();
 	            //String encoded = Base64.getEncoder().encodeToString((userSession.getUsername()+":"+userSession.getPassword()).getBytes(StandardCharsets.UTF_8));  //Java 8
-	            String encoded = Base64.getEncoder().encodeToString(("luismarianoazul@gmail.com"+":"+"test1").getBytes(StandardCharsets.UTF_8));  //Java 8
+	            String encoded = Base64.getEncoder().encodeToString(("adrian@gmail.com"+":"+"test2").getBytes(StandardCharsets.UTF_8));  //Java 8
 	            httpConnection.setRequestProperty("Authorization", "Basic "+encoded);
 	            httpConnection.setDoOutput(true);
 	            httpConnection.setRequestMethod("POST");
@@ -269,7 +269,7 @@ public class UtilImpl<T> implements Util<T> {
 	            outputStream.write(input.getBytes());
 	            outputStream.flush();
 	            if (httpConnection.getResponseCode() != 200) {
-	                throw new RuntimeException("Failed : HTTP error code : " + httpConnection.getResponseCode());
+	                throw new RuntimeException("Failed : HTTP error code : " + httpConnection.getResponseCode()+" msj: "+ httpConnection.getResponseMessage());
 	            }
 	            BufferedReader responseBuffer = new BufferedReader(
 	                    new InputStreamReader((httpConnection.getInputStream()), "UTF8"));

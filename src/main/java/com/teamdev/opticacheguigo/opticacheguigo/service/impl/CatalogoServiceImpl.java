@@ -35,12 +35,20 @@ public class CatalogoServiceImpl implements CatalogoService {
 	 @Value("${registrarProducto}")
 	 private String urlRegistrarProducto;
 	 
+	 @Value("${actualizaProducto}")
+	 private String urlActualizarProducto;
+	 
+	 @Value("${eliminaProducto}")
+	 private String urlEliminarProducto;
+	 
 	 @Autowired
 	 Util util;
 	 
 	 
 	 
-	 private static final String ERROR_INSERT="OCURRI&Oacute; UN ERROR AL REGISTRAR EL PRODUCTO";
+	 private static final String ERROR_INSERT="OCURRIO UN ERROR AL REGISTRAR  PRODUCTO";
+	 private static final String ERROR_UPDATE="OCURRIO UN ERROR AL ACTUALIZAR  PRODUCTO";
+	 private static final String ERROR_DELETE="OCURRIO UN ERROR AL ELIMINAR  PRODUCTO";
 
 	@Override
 	public ResponseGeneric registrarProducto(ProductoDto producto, AuthHeader userSession) {
@@ -52,6 +60,7 @@ public class CatalogoServiceImpl implements CatalogoService {
 	@Override
 	public ProductoDto converToMayus(ProductoDto producto) {
 		ProductoDto convertProducto= new ProductoDto();
+		convertProducto.setId(producto.getId()==null?null:producto.getId());
 		convertProducto.setIdCategoria(producto.getIdCategoria());
 		convertProducto.setIdMaterial(producto.getIdMaterial());
 		convertProducto.setExistencia(producto.getExistencia());
@@ -66,6 +75,25 @@ public class CatalogoServiceImpl implements CatalogoService {
 		
 		// TODO Auto-generated method stub
 		return convertProducto;
+	}
+
+	@Override
+	public ResponseGeneric eliminarProducto(String idProducto, AuthHeader userSession) {
+		String result="ERROR";
+		try {
+			result = util.sendGetAuth(urlEliminarProducto+idProducto,userSession);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return (result.equals("ERROR")?new ResponseGeneric(0,ERROR_DELETE,new Date(),1):(ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
+	}
+
+	@Override
+	public ResponseGeneric actualizarProducto(ProductoDto producto, AuthHeader userSession) {
+		String result = util.callRestPostAuth(producto,urlActualizarProducto,userSession);
+		return (result.equals("ERROR")?new ResponseGeneric(0,ERROR_UPDATE,new Date(),1):(ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
+		
 	}
 
 	

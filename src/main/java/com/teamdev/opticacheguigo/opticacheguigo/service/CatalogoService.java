@@ -11,6 +11,8 @@ import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
 
 public interface CatalogoService {
 	ResponseGeneric registrarProducto(ProductoDto producto,AuthHeader userSession);
+	ResponseGeneric actualizarProducto(ProductoDto producto,AuthHeader userSession);
+	ResponseGeneric eliminarProducto(String idProducto,AuthHeader userSession);
 	ProductoDto converToMayus(ProductoDto producto);
 	
 }

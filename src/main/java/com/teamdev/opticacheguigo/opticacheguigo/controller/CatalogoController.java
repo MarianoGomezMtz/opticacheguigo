@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -45,7 +46,10 @@ public class CatalogoController {
 	ViewsInventarioService viewInventario;
 	
 	@Autowired
-	ViewsCatalogoService catalogoService; 
+	ViewsCatalogoService viewCatalogoService; 
+	
+	@Autowired
+	CatalogoService catalogoService; 
 	
 	@Autowired
 	UsuarioService usuarioService;
@@ -62,6 +66,24 @@ public class CatalogoController {
 				.addObject("productos", inventarioService.productsByCatgory(1, getUsuario()));
 	}
 	
+	@GetMapping("/mica")
+	public ModelAndView viewMica() {
+		
+		return new ModelAndView(VIEW_MICA).addObject("codOperacion",3)
+				.addObject("mensaje","")
+				.addObject("productoError",new ProductoDto())
+				.addObject("productos", inventarioService.productsByCatgory(2, getUsuario()));
+	}
+	
+	@GetMapping("/insumo")
+	public ModelAndView viewInsumo() {
+		
+		return new ModelAndView(VIEW_MICA).addObject("codOperacion",3)
+				.addObject("mensaje","")
+				.addObject("productoError",new ProductoDto())
+				.addObject("productos", inventarioService.productsByCatgory(3, getUsuario()));
+	}
+	
 	@GetMapping("/micas")
 	public ModelAndView viewMicas() {
 		
@@ -76,9 +98,37 @@ public class CatalogoController {
 	}
 	
 	@PostMapping(path = "/guardar/armazon")
-	public ModelAndView registrarArmazon(@ModelAttribute ProductoDto producto ) {
+	public ModelAndView eliminarArmazon(@ModelAttribute ProductoDto producto ) {
 		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
-		return catalogoService.registroProducto( getUsuario(),producto,VIEW_ARMAZON);
+		return viewCatalogoService.registroProducto( getUsuario(),producto,VIEW_ARMAZON);
+	}
+	
+	@PostMapping(path = "/modifica/armazon")
+	public ModelAndView modificarArmazon(@ModelAttribute ProductoDto producto ) {
+		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
+		return viewCatalogoService.actualizaProducto( getUsuario(),producto,VIEW_ARMAZON);
+	}
+	
+	@PostMapping(path = "/modifica/producto" ,produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseGeneric modificarProducto(@ModelAttribute ProductoDto producto ) {
+		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
+		//return viewCatalogoService.actualizaProducto( getUsuario(),producto,VIEW_ARMAZON);
+		
+		return catalogoService.actualizarProducto(catalogoService.converToMayus(producto), getUsuario());
+		
+	}
+	
+	@GetMapping("/detailproducto/{idProducto}")
+    public ProductoDto detailProducto(@PathVariable(name="idProducto") String idProducto) {
+    	//return productoService.getProductoId(idProducto);
+       return inventarioService.detalleProducto(idProducto, getUsuario());
+    }
+	
+
+	@GetMapping(path = "/elimina/producto/{idProducto}")
+	public ResponseGeneric registrarArmazon(@PathVariable(name="idProducto") String idProducto ) {
+		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
+		return catalogoService.eliminarProducto(idProducto, getUsuario());
 	}
 	
 	

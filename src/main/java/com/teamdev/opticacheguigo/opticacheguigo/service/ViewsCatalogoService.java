@@ -7,6 +7,6 @@ import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 
 public interface ViewsCatalogoService {
 	public ModelAndView registroProducto(AuthHeader userSesion,ProductoDto prodcuto,String view);
-	
+	public ModelAndView actualizaProducto(AuthHeader userSesion,ProductoDto prodcuto,String view);
 
 }
