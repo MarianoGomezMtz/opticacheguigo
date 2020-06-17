@@ -13,6 +13,7 @@ public interface CatalogoService {
 	ResponseGeneric registrarProducto(ProductoDto producto,AuthHeader userSession);
 	ResponseGeneric actualizarProducto(ProductoDto producto,AuthHeader userSession);
 	ResponseGeneric eliminarProducto(String idProducto,AuthHeader userSession);
+	ResponseGeneric eliminarMica(String idMica,AuthHeader userSession);
 	ProductoDto converToMayus(ProductoDto producto);
 	
 }

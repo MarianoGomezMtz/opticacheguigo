@@ -55,7 +55,7 @@ public class ViewsCatalogoServiceImpl implements ViewsCatalogoService {
 		vistaRegistroPro.addObject("codOperacion",responseAlta.getCodigo())
 		.addObject("mensaje", responseAlta.getMensaje())
 		.addObject("productoError",producto)
-		.addObject("productos", inventarioService.productsByCatgory(1, userSession));
+		.addObject("productos", inventarioService.productsByCatgory(producto.getIdCategoria(), userSession));
 		
 		
 		
@@ -88,7 +88,7 @@ public class ViewsCatalogoServiceImpl implements ViewsCatalogoService {
 		vistaRegistroPro.addObject("codOperacion",responseAlta.getCodigo())
 		.addObject("mensaje", responseAlta.getMensaje())
 		.addObject("productoError",producto)
-		.addObject("productos", inventarioService.productsByCatgory(1, userSession));
+		.addObject("productos", inventarioService.productsByCatgory(producto.getIdCategoria(), userSession));
 		
 		
 		

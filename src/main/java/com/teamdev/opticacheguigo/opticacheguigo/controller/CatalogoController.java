@@ -51,7 +51,7 @@ public class CatalogoController {
 	@Autowired
 	InventarioService inventarioService;
 	
-	@GetMapping("/armazon")
+	@GetMapping({"/armazon","/modifica/armazon","/guardar/armazon"})
 	public ModelAndView viewArmazon() {
 		
 		return new ModelAndView(VIEW_ARMAZON).addObject("codOperacion",3)
@@ -60,30 +60,33 @@ public class CatalogoController {
 				.addObject("productos", inventarioService.productsByCatgory(1, getUsuario()));
 	}
 	
-	@GetMapping("/mica")
+	@GetMapping({"/micas","/modifica/mica","/guardar/mica"})
 	public ModelAndView viewMica() {
 		
 		return new ModelAndView(VIEW_MICA).addObject("codOperacion",3)
 				.addObject("mensaje","")
 				.addObject("productoError",new ProductoDto())
-				.addObject("productos", inventarioService.productsByCatgory(2, getUsuario()));
+				.addObject("micas", inventarioService.micasByMaterial(0, 1, getUsuario()))
+				.addObject("micasEliminadas", inventarioService.micasByMaterial(0, 0, getUsuario()))
+				.addObject("materiales", inventarioService.getMateriales(getUsuario()));
 	}
 	
-	@GetMapping("/insumo")
+	@GetMapping({"/insumo","/modifica/insumo","/guardar/insumo"})
 	public ModelAndView viewInsumo() {
 		
-		return new ModelAndView(VIEW_MICA).addObject("codOperacion",3)
+		return new ModelAndView(VIEW_INSUMO).addObject("codOperacion",3)
 				.addObject("mensaje","")
 				.addObject("productoError",new ProductoDto())
 				.addObject("productos", inventarioService.productsByCatgory(3, getUsuario()));
 	}
 	
+/*	
 	@GetMapping("/micas")
 	public ModelAndView viewMicas() {
 		
 		return viewInventario.inventarioProducto(getUsuario(),2,VIEW_MICA);
 	}
-	
+	*/
 	
 	@GetMapping("/insumos")
 	public ModelAndView viewInsumos() {
@@ -115,6 +118,18 @@ public class CatalogoController {
 		return viewCatalogoService.actualizaProducto( getUsuario(),producto,VIEW_ARMAZON);
 	}
 	
+	@PostMapping(path = "/modifica/mica")
+	public ModelAndView modificarMica(@ModelAttribute ProductoDto producto ) {
+		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
+		return viewCatalogoService.actualizaProducto( getUsuario(),producto,VIEW_MICA);
+	}
+	
+	@PostMapping(path = "/modifica/insumo")
+	public ModelAndView modificarInsumo(@ModelAttribute ProductoDto producto ) {
+		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
+		return viewCatalogoService.actualizaProducto( getUsuario(),producto,VIEW_INSUMO);
+	}
+	
 	@PostMapping(path = "/modifica/producto" ,produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseGeneric modificarProducto(@ModelAttribute ProductoDto producto ) {
 		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
@@ -132,11 +147,14 @@ public class CatalogoController {
 	
 
 	@GetMapping(path = "/elimina/producto/{idProducto}")
-	public ResponseGeneric registrarArmazon(@PathVariable(name="idProducto") String idProducto ) {
-		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
+	public ResponseGeneric eliminaProducto(@PathVariable(name="idProducto") String idProducto ) {
 		return catalogoService.eliminarProducto(idProducto, getUsuario());
 	}
 	
+	@GetMapping(path = "/elimina/mica/{idMica}")
+	public ResponseGeneric eliminaMica(@PathVariable(name="idMica") String idMica ) {
+		return catalogoService.eliminarMica(idMica, getUsuario());
+	}
 	
 	
 	public AuthHeader getUsuario() {

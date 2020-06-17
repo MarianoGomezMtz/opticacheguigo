@@ -41,14 +41,19 @@ public class CatalogoServiceImpl implements CatalogoService {
 	 @Value("${eliminaProducto}")
 	 private String urlEliminarProducto;
 	 
+	 @Value("${eliminaMica}")
+	 private String urlEliminaMica;
+	 
+	 
+	 
 	 @Autowired
 	 Util util;
 	 
 	 
 	 
-	 private static final String ERROR_INSERT="OCURRIO UN ERROR AL REGISTRAR  PRODUCTO";
-	 private static final String ERROR_UPDATE="OCURRIO UN ERROR AL ACTUALIZAR  PRODUCTO";
-	 private static final String ERROR_DELETE="OCURRIO UN ERROR AL ELIMINAR  PRODUCTO";
+	 private static final String ERROR_INSERT="OCURRIO UN ERROR AL REGISTRAR";
+	 private static final String ERROR_UPDATE="OCURRIO UN ERROR AL ACTUALIZAR";
+	 private static final String ERROR_DELETE="OCURRIO UN ERROR AL ELIMINAR";
 
 	@Override
 	public ResponseGeneric registrarProducto(ProductoDto producto, AuthHeader userSession) {
@@ -94,6 +99,19 @@ public class CatalogoServiceImpl implements CatalogoService {
 		String result = util.callRestPostAuth(producto,urlActualizarProducto,userSession);
 		return (result.equals("ERROR")?new ResponseGeneric(0,ERROR_UPDATE,new Date(),1):(ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
 		
+	}
+
+	@Override
+	public ResponseGeneric eliminarMica(String idMica, AuthHeader userSession) {
+		String result="ERROR";
+		try {
+			result = util.sendGetAuth(urlEliminaMica+idMica,userSession);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return (result.equals("ERROR")?new ResponseGeneric(0,ERROR_DELETE,new Date(),1):(ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
+	
 	}
 
 	

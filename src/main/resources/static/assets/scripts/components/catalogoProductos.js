@@ -62,6 +62,23 @@ function confirmaEliminar(id) {
 		});
 }
 
+function confirmaEliminarMica(id) {
+	swal({
+		  title: "¿Desea continuar?",
+		  text: "Ya no podrá asignar la mica a un tratamiento",
+		  icon: "warning",
+		  buttons: true,
+		  dangerMode: true,
+		})
+		.then((willDelete) => {
+		  if (willDelete) {
+			  eliminaMica(id);
+		  } else {
+		   
+		  }
+		});
+}
+
 function eliminaProducto(id)
 {
 	
@@ -89,6 +106,38 @@ function eliminaProducto(id)
                 closeButton: true
             });
             */
+        },complete: function() {
+        	setTimeout(function(){
+        		location.reload();
+        	}, 2400);
+        	
+		}
+    })
+
+}
+
+function eliminaMica(id)
+{
+	
+	var uri= ObtieneContex()+'/catalogo/elimina/mica/'+id;
+    uri=uri.replace("/catalogo/catalogo/", "/catalogo/");
+
+    $.ajax({
+        type: 'GET',
+        url: uri,
+        beforeSend: function () {
+			
+        },
+        success: function (data) {
+        	if(data.codigo==1)
+        		mensajeExito(data.mensaje);
+        	if(data.codigo==0)
+        		mensajeError(data.mensaje);
+        	
+        },
+        error: function () {
+        	mensajeError("Intente de nuevo, si el problema persiste contacte al administrador");
+			
         },complete: function() {
         	setTimeout(function(){
         		location.reload();

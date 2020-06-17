@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.StockProducto;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ConsultaMicas;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.MaterialDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
 import com.teamdev.opticacheguigo.opticacheguigo.service.InventarioService;
@@ -32,6 +34,12 @@ public class InventarioServiceImpl implements InventarioService {
 	 
 	 @Value("${detailProducto}")
 	 private String urlDetalleProducto;
+	 
+	 @Value("${listaMicaMaterial}")
+	 private String urlListaMicaMaterial;
+	 
+	 @Value("${listaMaterial}")
+	 private String urlListaMaterial;
 	 
 	 @Autowired
 	 Util util;
@@ -80,6 +88,36 @@ public class InventarioServiceImpl implements InventarioService {
 		}
 		return (ProductoDto) util.jsonToObject(new ProductoDto(), result);
 		
+	}
+
+	@Override
+	public List<MaterialDto> getMateriales(AuthHeader userSession) {
+		String url =urlListaMaterial;
+		String result=null;
+		try {
+			 result = util.sendGetAuth(url, userSession);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		return (result.equals("ERROR")?new ArrayList<>():util.arrayJsonToListMat(result));
+	}
+
+	@Override
+	public List<ConsultaMicas> micasByMaterial(Integer idMaterial, Integer estatus, AuthHeader userSession) {
+		String url =urlListaMicaMaterial+idMaterial+"/"+estatus;
+		String result=null;
+		try {
+			 result = util.sendGetAuth(url, userSession);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		return (result.equals("ERROR")?new ArrayList<>():util.arrayJsonToListMica(result));
 	}
 	
 	

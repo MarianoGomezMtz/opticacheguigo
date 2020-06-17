@@ -2,17 +2,26 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="modal-addMica" class="app-main__inner">
+<div th:fragment="modal-addInsumo" class="app-main__inner">
 	
 		<div class="main-card mb-3 card">
         		<div class="card-body">
-                	<h5 class="card-title">Registrar Mica</h5>
-                    	<form class="needs-validation" novalidate action="#" th:action="@{/catalogo/guardar/mica}" th:object="${producto}" method="post">
+                	<h5 class="card-title">Registrar Insumo</h5>
+                    	<form class="needs-validation" novalidate action="#" th:action="@{/catalogo/guardar/insumo}" th:object="${producto}" method="post">
                         	<div class="form-row">
-                            	
+                            	<div class="col-md-4 mb-3">
+                                	<label for="clave">Clave</label>
+                                    	<input type="text" class="form-control" style="text-transform: uppercase;" name="clave" id="clave" placeholder="Clave" value="" required>
+                                        	<div class="valid-feedback">
+                                                Clave v&aacute;lida
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                La clave es requerida
+                                            </div>
+                                 </div>
                                  <div class="col-md-4 mb-3">
-                                 	<label for="nombre">Mica</label>
-                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="nombre" name="nombre" placeholder="mica" value="" required>
+                                 	<label for="nombre">Insumo</label>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="nombre" name="nombre" placeholder="insumo" value="" required>
                                         	<div class="valid-feedback">
                                                 Clave v&aacute;lida
                                             </div>
@@ -21,37 +30,26 @@
                                             </div>
                                  </div>
                                  <div class="col-md-4 mb-3">
-                                 	<label for="modelo">Descripci&oacute;n</label>
-                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" value="" required>
-                                        	<div class="valid-feedback">
-                                                Descripci&oacute;n valida
-                                            </div>
-                                        	<div class="invalid-feedback">
-                                                Descripci&oacute;n requerida
-                                            </div>
-                                 </div>
-                                 
-                              </div>
-                              <div class="form-row">
-                              		 <div class="col-md-6 mb-3">
                                             <label for="material">Material</label>
                                             <select name="idMaterial" id="idMaterial" class="mb-2 form-control" required>
-                                                        <option value="">SELECCIONE UNA OPCI&Oacute;N</option>
-                                                        <option th:each="material : ${materiales}" th:value="${material.id}" th:text="${material.nombre}"></option>
+                                                        <option value=0>SELECCIONE UNA OPCI&Oacute;N</option>
+                                                        <option value=1>CR39</option>
+                                                        <option value=2>MICRO FIBRA</option>
                                             </select>
-                                             
                                             <div class="invalid-feedback">
                                                 El material es requerido
                                             </div>
                                      </div>
-                                </div>
+                                 
+                              </div>
+                              
                                 <div class="form-row">
                                 	
                               		<div class="col-md-3 mb-3">
-                                            <label for="precioCompra">Precio</label>
+                                            <label for="precioCompra">Precio de Compra</label>
                                             <input type="text" class="form-control" id="precioCompra" name="precioCompra" placeholder="" required>
                                             <div class="valid-feedback">
-                                               Precio valido
+                                               Precio de compra valido
                                             </div>
                                         	<div class="invalid-feedback">
                                         	  Por favor ingrese un valor entero o decimal
@@ -69,7 +67,18 @@
                                                
                                             </div>
              						</div>
-             						
+             						<div class="col-md-3 mb-3">
+                                            <label for="existencia">Existencia</label>
+                                            <input type="text" class="form-control" id="existencia" name="existencia" placeholder="existencia" required>
+                                            <div class="valid-feedback">
+                                             	Cantidad valida
+                                                
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                               Por favor ingrese un valor entero
+                                            </div>
+             						</div>
+                                    
                                 </div>
                                     
                                <button class="btn btn-primary" type="submit">Registrar</button>

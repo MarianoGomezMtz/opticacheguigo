@@ -3,6 +3,8 @@ package com.teamdev.opticacheguigo.opticacheguigo.service.impl;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ConsultaMicas;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.MaterialDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.service.Util;
 
@@ -22,7 +24,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 import java.lang.reflect.Type;
@@ -293,6 +294,28 @@ public class UtilImpl<T> implements Util<T> {
 		 //List<ProductoDto> objects = gson.fromJson(arrayJson, type);
 		   
 		 return gson.fromJson(arrayJson, type);
+	}
+	
+	@Override
+	public List<MaterialDto> arrayJsonToListMat(String arrayJson) {
+		 Gson gson = new Gson();
+		 Type type = new TypeToken<List<MaterialDto>>(){}.getType();
+		 //List<ProductoDto> objects = gson.fromJson(arrayJson, type);
+		   
+		 return gson.fromJson(arrayJson, type);
+	}
+
+
+	@Override
+	public List<ConsultaMicas> arrayJsonToListMica(String arrayJson) {
+		//Type type = new TypeToken<List<MaterialDto>>(){}.getType();
+		
+		/* Gson gson = new Gson();
+		 Type type = new TypeToken<List<ConsultaMicas>>(){}.getType();
+		 //List<ProductoDto> objects = gson.fromJson(arrayJson, type);
+		   
+		 return gson.fromJson(arrayJson, type);*/
+		return new Gson().fromJson(arrayJson, new TypeToken<List<ConsultaMicas>>(){}.getType());
 	}
 	
 

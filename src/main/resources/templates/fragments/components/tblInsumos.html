@@ -15,12 +15,8 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Clave</th>
-                                                    <th>Armaz&oacute;n</th>
-                                                    <th>Tipo</th>
-                                                   
-                                                    <th>Modelo</th>
-                                                   
-                                                    <th>Tama&ntilde;o</th>
+                                                    <th>Insumo</th>
+                                                    <th>Stock</th>
                                                     <th>Material</th>
                                                     <th>Acci&oacute;n</th>
                                                     <th class="d-none">producto</th>
@@ -31,23 +27,20 @@
                                                 	<tr th:each="producto : ${productos}">
 														<td th:text="${producto.clave}"></td>
 														<td th:text="${producto.nombre}"></td>
-														<td th:text="${producto.tipo}"></td>
-														
-														<td th:text="${producto.modelo}"></td>
-														
-														<td th:text="${producto.tamanio}"></td>
+																											
+														<td th:text="${producto.existencia}"></td>
 														<td th:text="${producto.material}"></td>
 														<td>
 															<div class="row">
 																<div class="font-icon-md">
-																	  	<button type="button" data-toggle="tooltip" title="Actualizar Armaz&oacute;n" data-placement="bottom" class="btn-shadow mr-3 btn btn-primary"
+																	  	<button type="button" data-toggle="tooltip" title="Actualizar Insumo" data-placement="bottom" class="btn-shadow mr-3 btn btn-primary"
 																	  	data-izimodal-open="#modalAgregarStock" data-izimodal-transitionin="fadeInDown"
 																	  	th:attr="onclick=|detalleProducto('${producto.id}')|" >
                                         									<i class="pe-7s-note pe-2x pe-va"></i>
                                     									</button>
 																</div>
 																<div class="font-icon-md">
-																	  	<button type="button" data-toggle="tooltip" title="Eliminar Armaz&oacute;n" data-placement="bottom" class="btn-shadow mr-3 btn btn-danger"
+																	  	<button type="button" data-toggle="tooltip" title="Eliminar Insumo" data-placement="bottom" class="btn-shadow mr-3 btn btn-danger"
 																	  	 th:attr="onclick=|confirmaEliminar('${producto.id}')|" >
 <!-- 																	  	th:onclick="detalleProducto(${producto.id})" -->
 																	  	
