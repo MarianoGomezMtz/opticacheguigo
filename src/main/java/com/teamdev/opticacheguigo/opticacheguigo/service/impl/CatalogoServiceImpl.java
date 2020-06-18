@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.request.MicaDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.StockProducto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
@@ -35,8 +36,16 @@ public class CatalogoServiceImpl implements CatalogoService {
 	 @Value("${registrarProducto}")
 	 private String urlRegistrarProducto;
 	 
+	 @Value("${registrarMica}")
+	 private String urlRegistrarMica;
+	 
+	 
 	 @Value("${actualizaProducto}")
 	 private String urlActualizarProducto;
+	 
+	 @Value("${actualizaMica}")
+	 private String urlActualizaMica;
+	 
 	 
 	 @Value("${eliminaProducto}")
 	 private String urlEliminarProducto;
@@ -112,6 +121,28 @@ public class CatalogoServiceImpl implements CatalogoService {
 		}
 		return (result.equals("ERROR")?new ResponseGeneric(0,ERROR_DELETE,new Date(),1):(ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
 	
+	}
+
+	@Override
+	public MicaDto converToMayusMica(MicaDto mica) {
+		mica.setId(mica.getId()==null?null:mica.getId());
+		mica.setDescripcion(mica.getDescripcion()==null?"":mica.getDescripcion().toUpperCase());
+		mica.setIdMaterial(mica.getIdMaterial());
+		mica.setNombre(mica.getNombre()==null?"":mica.getNombre().toUpperCase());
+		
+		return mica;
+	}
+
+	@Override
+	public ResponseGeneric actualizarMica(MicaDto mica, AuthHeader userSession) {
+		String result = util.callRestPostAuth(mica,urlActualizaMica,userSession);
+		return (result.equals("ERROR")?new ResponseGeneric(0,ERROR_UPDATE,new Date(),1):(ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
+	}
+	
+	@Override
+	public ResponseGeneric registraMica(MicaDto mica, AuthHeader userSession) {
+		String result = util.callRestPostAuth(mica,urlRegistrarMica,userSession);
+		return (result.equals("ERROR")?new ResponseGeneric(0,ERROR_UPDATE,new Date(),1):(ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
 	}
 
 	

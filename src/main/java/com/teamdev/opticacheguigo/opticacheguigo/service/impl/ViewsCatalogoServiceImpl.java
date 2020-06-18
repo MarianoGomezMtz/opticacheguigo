@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.request.MicaDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
 import com.teamdev.opticacheguigo.opticacheguigo.service.CatalogoService;
@@ -89,6 +90,44 @@ public class ViewsCatalogoServiceImpl implements ViewsCatalogoService {
 		.addObject("mensaje", responseAlta.getMensaje())
 		.addObject("productoError",producto)
 		.addObject("productos", inventarioService.productsByCatgory(producto.getIdCategoria(), userSession));
+		
+		
+		
+		return vistaRegistroPro;
+	}
+
+
+	@Override
+	public ModelAndView actualizaMica(AuthHeader userSesion, MicaDto mica) {
+		ModelAndView vistaRegistroPro;
+		vistaRegistroPro=new ModelAndView(VIEW_MICA);
+		mica = catalogoService.converToMayusMica(mica);
+		ResponseGeneric responseAlta= catalogoService.actualizarMica(mica, userSesion);
+		vistaRegistroPro.addObject("codOperacion",responseAlta.getCodigo())
+		.addObject("mensaje", responseAlta.getMensaje())
+		.addObject("productoError",mica)
+		.addObject("micas", inventarioService.micasByMaterial(0, 1, userSesion))
+		.addObject("micasEliminadas", inventarioService.micasByMaterial(0, 0, userSesion))
+		.addObject("materiales", inventarioService.getMateriales(userSesion));
+		
+		
+		
+		return vistaRegistroPro;
+	}
+
+
+	@Override
+	public ModelAndView registroMica(AuthHeader userSesion, MicaDto mica) {
+		ModelAndView vistaRegistroPro;
+		vistaRegistroPro=new ModelAndView(VIEW_MICA);
+		mica = catalogoService.converToMayusMica(mica);
+		ResponseGeneric responseAlta= catalogoService.registraMica(mica, userSesion);
+		vistaRegistroPro.addObject("codOperacion",responseAlta.getCodigo())
+		.addObject("mensaje", responseAlta.getMensaje())
+		.addObject("productoError",mica)
+		.addObject("micas", inventarioService.micasByMaterial(0, 1, userSesion))
+		.addObject("micasEliminadas", inventarioService.micasByMaterial(0, 0, userSesion))
+		.addObject("materiales", inventarioService.getMateriales(userSesion));
 		
 		
 		

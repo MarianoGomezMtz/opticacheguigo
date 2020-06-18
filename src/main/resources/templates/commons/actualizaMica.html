@@ -7,97 +7,66 @@
 	<div class="main-card mb-3 card">
         		<div class="card-body">
                 	<h5 class="card-title">Actualizar Mica</h5>
-                    	<form class="needs-validation" novalidate action="#" th:action="@{/catalogo/modifica/mica}" th:object="${producto}" method="post" id="formMdfProduct">
+                    	<form class="needs-validation" novalidate action="#" th:action="@{/catalogo/modifica/mica}" th:object="${mica}" method="post" id="formMdfProduct">
                         	<div class="form-row">
-                            	<div class="col-md-4 mb-3">
-                                	<label for="clave">Clave</label>
-                                    	<input type="text" class="form-control" style="text-transform: uppercase;" name="clave" id="actClave" placeholder="Clave"  required disabled>
-                                        	<div class="valid-feedback">
-                                                Clave v&aacute;lida
-                                            </div>
-                                            <div class="invalid-feedback">
-                                                La clave es requerida
-                                            </div>
-                                 </div>
-                                 <div class="col-md-4 mb-3">
+                            	<div class="col-md-6 mb-3">
                                  	<label for="actNombre">Mica</label>
-                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="actNombre" name="nombre" placeholder="mica" value="" required disabled>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="actNombre" name="nombre" placeholder="mica" value="" required>
                                         	<div class="valid-feedback">
                                                 Clave v&aacute;lida
                                             </div>
                                         	<div class="invalid-feedback">
-                                                El armaz&oacute;n es requerido.
+                                                La mica es requerida
                                             </div>
                                  </div>
-                                 <div class="col-md-4 mb-3">
-                                 	<label for="actModelo">Modelo</label>
-                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="actModelo" name="modelo" placeholder="modelo" value="" required>
+                                 <div class="col-md-6 mb-3">
+                                 	<label for="modelo">Descripci&oacute;n</label>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="actDescripcion" name="descripcion" placeholder="descripcion" value="" required>
                                         	<div class="valid-feedback">
-                                                El modelo es valido
+                                                Descripci&oacute;n valida
                                             </div>
                                         	<div class="invalid-feedback">
-                                                El modelo es requerido
+                                                Descripci&oacute;n requerida
                                             </div>
                                  </div>
+                                
+                  
                               </div>
                               <div class="form-row">
-                              		<div class="col-md-3 mb-3">
-                                            <label for="actTipo">Tipo</label>
-                                            <input type="text" style="text-transform: uppercase;" class="form-control" id="actTipo" name="tipo" placeholder="tipo" >
-             						</div>
-                                    <div class="col-md-6 mb-3">
+                              		<div class="col-md-4 mb-3">
                                             <label for="actIdMaterial">Material</label>
                                             <select name="idMaterial" id="actIdMaterial" class="mb-2 form-control" required>
-                                                        <option value=0>SELECCIONE UNA OPCI&Oacute;N</option>
-                                                        <option value=1>CR39</option>
-                                                        <option value=2>MICRO FIBRA</option>
+                                                         <option value="">SELECCIONE UNA OPCI&Oacute;N</option>
+                                                        <option th:each="material : ${materiales}" th:value="${material.id}" th:text="${material.nombre}"></option>
                                             </select>
                                             <div class="invalid-feedback">
                                                 El material es requerido
                                             </div>
-                                     </div>
-                                </div>
-                                <div class="form-row">
-                                	<div class="col-md-3 mb-3">
-                                            <label for="actTamanio">Tama&ntilde;o</label>
-                                            <input type="text" style="text-transform: uppercase;" class="form-control" id="actTamanio" name="tamanio" placeholder="tama&ntilde;o">
-                                                                                       
                                     </div>
-                              		<div class="col-md-3 mb-3">
-                                            <label for="actPrecioCompra">Precio de Compra</label>
-                                            <input type="text" class="form-control" id="actPrecioCompra" name="precioCompra" placeholder="" required>
+                               		<div class="col-md-4 mb-3">
+                                            <label for="actPrecioCompra">Precio</label>
+                                            <input type="text" class="form-control" id="actPrecioCompra" name="precio" placeholder="" required>
                                             <div class="valid-feedback">
-                                               Precio de compra valido
+                                               Precio valido
                                             </div>
                                         	<div class="invalid-feedback">
                                         	  Por favor ingrese un valor entero o decimal
                                             </div>
                                             
                                     </div>
-                                    <div class="col-md-3 mb-3">
+                                    <div class="col-md-4 mb-3">
                                             <label for="actPrecioVenta">Precio de Venta</label>
                                             <input type="text" class="form-control" id="actPrecioVenta" name="precioVenta" placeholder="" required>
                                             <div class="valid-feedback">
-                                                Precio de venta valido
+                                                Precio valido
                                             </div>
                                         	<div class="invalid-feedback">
                                         	 	Por favor ingrese un valor entero o decimal
                                                
                                             </div>
              						</div>
-             						<div class="col-md-3 mb-3">
-                                            <label for="actExistencia">Existencia</label>
-                                            <input type="text" class="form-control" id="actExistencia" name="existencia" placeholder="existencia" required disabled>
-                                            <div class="valid-feedback">
-                                             	Cantidad valida
-                                                
-                                            </div>
-                                        	<div class="invalid-feedback">
-                                               Por favor ingrese un valor entero
-                                            </div>
-             						</div>
+             						
                                     <input type="text" class="d-none" style="text-transform: uppercase;" name="id" id="actId"  required>
-                                    <input type="text" class="d-none" style="text-transform: uppercase;" name="idCategoria" id="actIdCategoria"  required>
                                 </div>
                                     
                                <button class="btn btn-primary" type="submit">Actualizar</button>

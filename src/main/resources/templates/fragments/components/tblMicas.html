@@ -34,7 +34,7 @@
 																<div class="font-icon-md">
 																	  	<button type="button" data-toggle="tooltip" title="Actualizar Mica" data-placement="bottom" class="btn-shadow mr-3 btn btn-primary"
 																	  	data-izimodal-open="#modalAgregarStock" data-izimodal-transitionin="fadeInDown"
-																	  	th:attr="onclick=|detalleProducto('${mica.id}')|" >
+																	  	th:attr="onclick=|detalleMica('${mica.id}')|" >
                                         									<i class="pe-7s-note pe-2x pe-va"></i>
                                     									</button>
 																</div>
@@ -94,11 +94,11 @@
 														<td>
 															<div class="row">
 																<div class="font-icon-md">
-																	  	<button type="button" data-toggle="tooltip" title="Activar Mica" data-placement="bottom" class="btn-shadow mr-3 btn btn-danger"
+																	  	<button type="button" data-toggle="tooltip" title="Activar Mica" data-placement="bottom" class="btn-shadow mr-3 btn btn-success"
 																	  	 th:attr="onclick=|confirmaEliminarMica('${mica.id}')|" >
 <!-- 																	  	th:onclick="detalleProducto(${producto.id})" -->
 																	  	
-                                        									<i class="pe-7s-trash pe-2x pe-va"></i>
+                                        									<i class="pe-7s-check pe-2x pe-va"></i>
                                     									</button>
 																</div>
 															</div>

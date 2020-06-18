@@ -16,7 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.request.MicaDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.UsuarioPassEncrypt;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ConsultaMicas;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
 import com.teamdev.opticacheguigo.opticacheguigo.service.CatalogoService;
@@ -101,9 +103,9 @@ public class CatalogoController {
 	}
 	
 	@PostMapping(path = "/guardar/mica")
-	public ModelAndView guardarMica(@ModelAttribute ProductoDto producto ) {
+	public ModelAndView guardarMica(@ModelAttribute MicaDto mica ) {
 		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
-		return viewCatalogoService.registroProducto( getUsuario(),producto,VIEW_MICA);
+		return viewCatalogoService.registroMica( getUsuario(),mica);
 	}
 	
 	@PostMapping(path = "/guardar/insumo")
@@ -119,9 +121,9 @@ public class CatalogoController {
 	}
 	
 	@PostMapping(path = "/modifica/mica")
-	public ModelAndView modificarMica(@ModelAttribute ProductoDto producto ) {
+	public ModelAndView modificarMica(@ModelAttribute MicaDto mica ) {
 		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
-		return viewCatalogoService.actualizaProducto( getUsuario(),producto,VIEW_MICA);
+		return viewCatalogoService.actualizaMica( getUsuario(),mica);
 	}
 	
 	@PostMapping(path = "/modifica/insumo")
@@ -132,9 +134,7 @@ public class CatalogoController {
 	
 	@PostMapping(path = "/modifica/producto" ,produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseGeneric modificarProducto(@ModelAttribute ProductoDto producto ) {
-		//ResponseGeneric respuesta=inventarioService.actualizarStockProducto(stockProducto, getUsuario());
-		//return viewCatalogoService.actualizaProducto( getUsuario(),producto,VIEW_ARMAZON);
-		
+				
 		return catalogoService.actualizarProducto(catalogoService.converToMayus(producto), getUsuario());
 		
 	}
@@ -143,6 +143,12 @@ public class CatalogoController {
     public ProductoDto detailProducto(@PathVariable(name="idProducto") String idProducto) {
     	//return productoService.getProductoId(idProducto);
        return inventarioService.detalleProducto(idProducto, getUsuario());
+    }
+	
+	@GetMapping("/detailMica/{idMica}")
+    public ConsultaMicas detailMica(@PathVariable(name="idMica") String idMica) {
+    	//return productoService.getProductoId(idProducto);
+       return inventarioService.detailMica(idMica, getUsuario());
     }
 	
 

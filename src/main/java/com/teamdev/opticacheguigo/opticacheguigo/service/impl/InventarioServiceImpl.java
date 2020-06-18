@@ -41,6 +41,11 @@ public class InventarioServiceImpl implements InventarioService {
 	 @Value("${listaMaterial}")
 	 private String urlListaMaterial;
 	 
+	 @Value("${detalleMica}")
+	 private String urlDetalleMica;
+	 
+	 
+	 
 	 @Autowired
 	 Util util;
 
@@ -118,6 +123,19 @@ public class InventarioServiceImpl implements InventarioService {
 		}
 		
 		return (result.equals("ERROR")?new ArrayList<>():util.arrayJsonToListMica(result));
+	}
+
+	@Override
+	public ConsultaMicas detailMica(String idMica, AuthHeader userSession) {
+		String url =urlDetalleMica+idMica;
+		String result=null;
+		try {
+			 result = util.sendGetAuth(url, userSession);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return (ConsultaMicas) util.jsonToObject(new ConsultaMicas(), result);
 	}
 	
 	

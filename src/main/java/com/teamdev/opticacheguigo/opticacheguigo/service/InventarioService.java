@@ -18,4 +18,5 @@ public interface InventarioService {
 	ResponseGeneric actualizarStockProducto(StockProducto stockProducto,AuthHeader userSession);
 	ProductoDto detalleProducto(String idProducto,AuthHeader userSession);
 	List<MaterialDto> getMateriales(AuthHeader userSession);
+	ConsultaMicas detailMica(String idMica,AuthHeader userSession);
 }

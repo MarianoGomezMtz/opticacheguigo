@@ -190,6 +190,43 @@ function detalleProducto(id)
 
 }
 
+function detalleMica(id)
+{
+	
+	// $("#formMdfProduct")[0].reset();
+   
+    var uri=ObtieneContex()+'/catalogo/detailMica/'+id;
+    uri=uri.replace("/catalogo/catalogo/", "/catalogo/");
+    $.ajax({
+        type: 'GET',
+        url: uri,
+        beforeSend: function () {
+			
+        },
+        success: function (data) {
+        	
+        	$("#actId").val(data.id);
+        	$("#actIdMaterial").val(data.idMaterial);
+        	$("#actDescripcion").val(data.descripcion);
+        	$("#actNombre").val(data.nombre);
+           	$("#actPrecioCompra").val(data.precio);
+        	$("#actPrecioVenta").val(data.precioVenta);
+        	$("#actExistencia").val(data.existencia);
+        	
+        },
+        error: function () {
+
+			/*
+            var dialog = bootbox.alert({
+                message: '<p class="text-center">' + "No se encontro resultados con los criterios introducidos" + '</p>',
+                closeButton: true
+            });
+            */
+        }
+    })
+
+}
+
 
 function actualizaProducto(){
 	

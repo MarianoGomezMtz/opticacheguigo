@@ -7,7 +7,7 @@
 		<div class="main-card mb-3 card">
         		<div class="card-body">
                 	<h5 class="card-title">Registrar Mica</h5>
-                    	<form class="needs-validation" novalidate action="#" th:action="@{/catalogo/guardar/mica}" th:object="${producto}" method="post">
+                    	<form class="needs-validation" novalidate action="#" th:action="@{/catalogo/guardar/mica}" th:object="${mica}" method="post">
                         	<div class="form-row">
                             	
                                  <div class="col-md-4 mb-3">
@@ -17,7 +17,7 @@
                                                 Clave v&aacute;lida
                                             </div>
                                         	<div class="invalid-feedback">
-                                                El armaz&oacute;n es requerido.
+                                                La mica es requerida.
                                             </div>
                                  </div>
                                  <div class="col-md-4 mb-3">
@@ -30,10 +30,7 @@
                                                 Descripci&oacute;n requerida
                                             </div>
                                  </div>
-                                 
-                              </div>
-                              <div class="form-row">
-                              		 <div class="col-md-6 mb-3">
+                                 <div class="col-md-4 mb-3">
                                             <label for="material">Material</label>
                                             <select name="idMaterial" id="idMaterial" class="mb-2 form-control" required>
                                                         <option value="">SELECCIONE UNA OPCI&Oacute;N</option>
@@ -43,13 +40,15 @@
                                             <div class="invalid-feedback">
                                                 El material es requerido
                                             </div>
-                                     </div>
-                                </div>
+                                 </div>
+                                 
+                              </div>
+                             
                                 <div class="form-row">
                                 	
-                              		<div class="col-md-3 mb-3">
+                              		<div class="col-md-4 mb-3">
                                             <label for="precioCompra">Precio</label>
-                                            <input type="text" class="form-control" id="precioCompra" name="precioCompra" placeholder="" required>
+                                            <input type="text" class="form-control" id="precioCompra" name="precio" placeholder="" required>
                                             <div class="valid-feedback">
                                                Precio valido
                                             </div>
@@ -58,7 +57,7 @@
                                             </div>
                                             
                                     </div>
-                                    <div class="col-md-3 mb-3">
+                                    <div class="col-md-4 mb-3">
                                             <label for="precioVenta">Precio de Venta</label>
                                             <input type="text" class="form-control" id="precioVenta" name="precioVenta" placeholder="" required>
                                             <div class="valid-feedback">
