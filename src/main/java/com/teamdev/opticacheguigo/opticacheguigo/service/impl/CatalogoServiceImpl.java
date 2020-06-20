@@ -76,7 +76,6 @@ public class CatalogoServiceImpl implements CatalogoService {
 		ProductoDto convertProducto= new ProductoDto();
 		convertProducto.setId(producto.getId()==null?null:producto.getId());
 		convertProducto.setIdCategoria(producto.getIdCategoria());
-		convertProducto.setIdMaterial(producto.getIdMaterial());
 		convertProducto.setExistencia(producto.getExistencia());
 		convertProducto.setPrecioCompra(producto.getPrecioCompra());
 		convertProducto.setPrecioVenta(producto.getPrecioVenta());

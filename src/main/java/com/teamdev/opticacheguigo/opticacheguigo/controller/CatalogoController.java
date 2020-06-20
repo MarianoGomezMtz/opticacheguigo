@@ -1,7 +1,5 @@
 package com.teamdev.opticacheguigo.opticacheguigo.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -59,7 +57,7 @@ public class CatalogoController {
 		return new ModelAndView(VIEW_ARMAZON).addObject("codOperacion",3)
 				.addObject("mensaje","")
 				.addObject("productoError",new ProductoDto())
-				.addObject("productos", inventarioService.productsByCatgory(1, getUsuario()));
+				.addObject("productos", inventarioService.productsByCatgory(1,1, getUsuario()));
 	}
 	
 	@GetMapping({"/micas","/modifica/mica","/guardar/mica"})
@@ -79,7 +77,7 @@ public class CatalogoController {
 		return new ModelAndView(VIEW_INSUMO).addObject("codOperacion",3)
 				.addObject("mensaje","")
 				.addObject("productoError",new ProductoDto())
-				.addObject("productos", inventarioService.productsByCatgory(3, getUsuario()));
+				.addObject("productos", inventarioService.productsByCatgory(3,1, getUsuario()));
 	}
 	
 /*	

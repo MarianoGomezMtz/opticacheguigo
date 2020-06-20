@@ -16,7 +16,7 @@ public class ViewsInventarioServiceImpl implements ViewsInventarioService {
 	
 	public ModelAndView inventarioProducto(AuthHeader userSesion, Integer idCategoria,String view) {
 		
-		return new ModelAndView(view).addObject("productos", inventarioService.productsByCatgory(idCategoria, userSesion));
+		return new ModelAndView(view).addObject("productos", inventarioService.productsByCatgory(idCategoria,1, userSesion));
 	}
 
 	/*

@@ -170,7 +170,7 @@ function detalleProducto(id)
         	$("#actModelo").val(data.modelo);
         	$("#actColor").val(data.color);
         	$("#actTipo").val(data.tipo);
-        	$("#actIdMaterial").val(data.idMaterial);
+        	
         	$("#actTamanio").val(data.tamanio);
         	$("#actPrecioCompra").val(data.precioCompra);
         	$("#actPrecioVenta").val(data.precioVenta);

@@ -27,7 +27,7 @@ public class ViewsCatalogoServiceImpl implements ViewsCatalogoService {
 	
 	public ModelAndView inventarioProducto(AuthHeader userSesion, Integer idCategoria,String view) {
 		
-		return new ModelAndView(view).addObject("productos", inventarioService.productsByCatgory(idCategoria, userSesion));
+		return new ModelAndView(view).addObject("productos", inventarioService.productsByCatgory(idCategoria,1, userSesion));
 	}
 
 
@@ -56,7 +56,7 @@ public class ViewsCatalogoServiceImpl implements ViewsCatalogoService {
 		vistaRegistroPro.addObject("codOperacion",responseAlta.getCodigo())
 		.addObject("mensaje", responseAlta.getMensaje())
 		.addObject("productoError",producto)
-		.addObject("productos", inventarioService.productsByCatgory(producto.getIdCategoria(), userSession));
+		.addObject("productos", inventarioService.productsByCatgory(producto.getIdCategoria(),1, userSession));
 		
 		
 		
@@ -89,7 +89,7 @@ public class ViewsCatalogoServiceImpl implements ViewsCatalogoService {
 		vistaRegistroPro.addObject("codOperacion",responseAlta.getCodigo())
 		.addObject("mensaje", responseAlta.getMensaje())
 		.addObject("productoError",producto)
-		.addObject("productos", inventarioService.productsByCatgory(producto.getIdCategoria(), userSession));
+		.addObject("productos", inventarioService.productsByCatgory(producto.getIdCategoria(),1, userSession));
 		
 		
 		

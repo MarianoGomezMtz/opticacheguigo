@@ -13,7 +13,7 @@ import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
 
 
 public interface InventarioService {
-	List<ProductoDto> productsByCatgory(Integer idCategory,AuthHeader userSession);
+	List<ProductoDto> productsByCatgory(Integer idCategory,Integer estatus,AuthHeader userSession);
 	List<ConsultaMicas>micasByMaterial(Integer idMaterial,Integer estatus,AuthHeader userSession);
 	ResponseGeneric actualizarStockProducto(StockProducto stockProducto,AuthHeader userSession);
 	ProductoDto detalleProducto(String idProducto,AuthHeader userSession);

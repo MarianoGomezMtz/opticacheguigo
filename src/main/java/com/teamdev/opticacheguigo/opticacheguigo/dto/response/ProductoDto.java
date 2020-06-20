@@ -14,9 +14,8 @@ public class ProductoDto {
 	private Integer  status;
 	private String  tamanio;
 	private Integer  idCategoria;
-	private Integer  idMaterial;
 	private String categoria;
-	private String material;
+	
 		
 	public ProductoDto() {
 		
@@ -26,7 +25,7 @@ public class ProductoDto {
 
 	public ProductoDto(Integer id, String clave, String nombre, String tipo, Integer existencia, Double precioCompra,
 			Double precioVenta, String color, String modelo, Integer status, String tamanio, Integer idCategoria,
-			Integer idMaterial, String categoria, String material) {
+			 String categoria) {
 		this.id = id;
 		this.clave = clave;
 		this.nombre = nombre;
@@ -39,9 +38,7 @@ public class ProductoDto {
 		this.status = status;
 		this.tamanio = tamanio;
 		this.idCategoria = idCategoria;
-		this.idMaterial = idMaterial;
 		this.categoria=categoria;
-		this.material=material;
 	}
 
 
@@ -142,15 +139,7 @@ public class ProductoDto {
 		this.idCategoria = idCategoria;
 	}
 
-	public Integer getIdMaterial() {
-		return idMaterial;
-	}
-
-	public void setIdMaterial(Integer idMaterial) {
-		this.idMaterial = idMaterial;
-	}
-
-
+	
 	public String getCategoria() {
 		return categoria;
 	}
@@ -161,15 +150,6 @@ public class ProductoDto {
 	}
 
 
-	public String getMaterial() {
-		return material;
-	}
-
-
-	public void setMaterial(String material) {
-		this.material = material;
-	}
-		
 	
 	
 }

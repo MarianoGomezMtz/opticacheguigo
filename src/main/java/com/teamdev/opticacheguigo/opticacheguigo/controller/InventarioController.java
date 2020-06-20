@@ -89,7 +89,7 @@ public class InventarioController {
 	@GetMapping("/productos/{idCategoria}")
     public List<ProductoDto> getProductos(@PathVariable(name="idCategoria") Integer idCategoria) {
     	//return productoService.getProductoId(idProducto);
-       return inventarioService.productsByCatgory(idCategoria, getUsuario());
+       return inventarioService.productsByCatgory(idCategoria,1, getUsuario());
     }
 	
 	@GetMapping("/agenda")
