@@ -51,8 +51,8 @@ public class InventarioServiceImpl implements InventarioService {
 
 	@Override
 	public List<ProductoDto> productsByCatgory(Integer idCategory,Integer estatus,AuthHeader userSession) {
-		//http://www.opticacheguigo.com/backOpticaCheguigo/optica/producto/categoria=1/activo=1
-		String url =urlProductoCategoria+idCategory+"/activo="+estatus;
+		//http://www.opticacheguigo.com/backOpticaCheguigo/optica/producto/categoria/1/activo/1
+		String url =urlProductoCategoria+idCategory+"/activo/"+estatus;
 		String result=null;
 		try {
 			 result = util.sendGetAuth(url, userSession);
@@ -61,10 +61,7 @@ public class InventarioServiceImpl implements InventarioService {
 			e.printStackTrace();
 			
 		}
-		
-		//List<ProductoDto> productos =util.arrayJsonToList(result);
-		//System.out.println(productos.get(0).getColor());
-		
+				
 		return (result.equals("ERROR")?new ArrayList<>():util.arrayJsonToList(result));
 	}
 

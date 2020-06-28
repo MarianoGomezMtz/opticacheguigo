@@ -2,26 +2,17 @@ $(document).ready(function () {
 
   $('.numero').mask('##0', {'translation': {0: {pattern: /[0-9*]/}}});
   $('#tblProducto').dataTable({
-       searching: false,
-       lengthChange: false,
-       paging: true,
-       destroy:true,
-       info:false,
-       autoWidth: false,
-       responsive: true,
-       'columnDefs': [
-           {
-               'targets': 0,
-               'checkboxes': {
-                  'selectRow': false
-               }
-            }
-         ],
-         'select': {
-            'style': 'single'
-         }
-       
-   });
+      searching: true,
+      lengthChange: false,
+      paging: true,
+      destroy:true,
+      info:true,
+      ordering: true,
+      info:     false,
+      autoWidth: false,
+      responsive: true
+      
+  });
   
   
   $('#tblProducto tbody').on( 'click', 'tr', function () {

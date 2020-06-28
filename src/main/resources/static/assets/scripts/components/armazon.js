@@ -2,24 +2,15 @@ $(document).ready(function () {
 
   $('.numero').mask('##0', {'translation': {0: {pattern: /[0-9*]/}}});
   $('#tblProducto').dataTable({
-       searching: false,
+       searching: true,
        lengthChange: false,
        paging: true,
        destroy:true,
-       info:false,
+       info:true,
+       ordering: true,
+       info:     false,
        autoWidth: false,
-       responsive: true,
-       'columnDefs': [
-           {
-               'targets': 0,
-               'checkboxes': {
-                  'selectRow': false
-               }
-            }
-         ],
-         'select': {
-            'style': 'single'
-         }
+       responsive: true
        
    });
   
@@ -29,8 +20,8 @@ $(document).ready(function () {
       var rowData = table.row( this ).data();
       $("#stockProducto").val(rowData[1]);
       $("#stockExistencia").val(rowData[3]);
-      $("#idProducto").val(rowData[9]);
-      $("#idCategoria").val(rowData[10]);
+      $("#idProducto").val(rowData[8]);
+      $("#idCategoria").val(rowData[9]);
       $("#stockCantidad").val("");
   } );
    
@@ -117,7 +108,6 @@ function detalleProducto(id)
         	$("#detModelo").val(data.modelo);
         	$("#detColor").val(data.color);
         	$("#detTamanio").val(data.tamanio);
-        	$("#detMaterial").val(data.material);
         	$("#detPrecioC").val(data.precioCompra);
         	$("#detPrecioV").val(data.precioVenta);
         	$("#detExistencia").val(data.existencia);

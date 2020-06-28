@@ -3,6 +3,7 @@ package com.teamdev.opticacheguigo.opticacheguigo.service.impl;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.request.cp.CPValidoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ConsultaMicas;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.MaterialDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
@@ -316,6 +317,48 @@ public class UtilImpl<T> implements Util<T> {
 		   
 		 return gson.fromJson(arrayJson, type);*/
 		return new Gson().fromJson(arrayJson, new TypeToken<List<ConsultaMicas>>(){}.getType());
+	}
+
+
+	@Override
+	public List<CPValidoDto> arrayJsonToListCP(String arrayJson) {
+		// TODO Auto-generated method stub
+		return new Gson().fromJson(arrayJson, new TypeToken<List<CPValidoDto>>(){}.getType());
+	}
+
+
+	@Override
+	public String sendGETCP(String urlCP) throws IOException {
+		String output="";
+		try {
+
+			String endpoint_sepomex  = "http://api-sepomex.hckdrk.mx/query/";
+			String method_sepomex = "info_cp/";
+			String cp = "09810";
+			String variable_string = "?type=simplified";
+			String url_sepomex = endpoint_sepomex + method_sepomex + cp + variable_string;
+			
+            URL url = new URL(url_sepomex);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            if (conn.getResponseCode() != 200) {
+                throw new RuntimeException("Codigo http error:"
+                        + conn.getResponseCode());
+            }
+            InputStreamReader in = new InputStreamReader(conn.getInputStream());
+            BufferedReader br = new BufferedReader(in);
+            
+            while ((output = br.readLine()) != null) {
+                System.out.println(output);
+            }
+            conn.disconnect();
+
+        } catch (Exception e) {
+            System.out.println("Error:" + e);
+        }
+		
+		return output;
 	}
 	
 

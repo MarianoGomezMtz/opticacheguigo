@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="registroPaciente" class="app-main__inner">
+	<form class="needs-validation" novalidate action="#" th:action="@{/paciente/guardar/paciente}" th:object="${mica}" method="post">
+		<div class="main-card mb-3 card">
+        		<div class="card-body">
+                	<h5 class="card-title">Datos Personales</h5>
+                    	
+                        	<div class="form-row">
+                            	
+                                 <div class="col-md-4 mb-3">
+                                 	<label for="nombre">Nombre</label>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="nombre" name="nombre" placeholder="nombre" value="" required>
+                                        	<div class="valid-feedback">
+                                                El nombre es requerido
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                                Nombre valido
+                                            </div>
+                                 </div>
+                                 <div class="col-md-4 mb-3">
+                                 	<label for="modelo">Apellido Paterno</label>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="apPaterno" name="apPaterno" placeholder="Apellido Paterno" value="" required>
+                                        	<div class="valid-feedback">
+                                                El apellido paterno es requerido
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                                Apellido Valido
+                                            </div>
+                                 </div>
+                                 <div class="col-md-4 mb-3">
+                                 	<label for="modelo">Apellido Materno</label>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="apMaterno" name="apMaterno" placeholder="Apellido Materno" value="" required>
+                                        	<div class="valid-feedback">
+                                                El apellido materno es requerido
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                                Apellido Valido
+                                            </div>
+                                 </div>
+                                                                  
+                              </div>
+                             
+                                <div class="form-row">
+                                	
+                              		<div class="col-md-4 mb-3">
+                                            <label for="precioCompra">Email</label>
+                                            <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text">@</span></div>
+                                                        <input placeholder="email" type="text" class="form-control" id="email" name="email" required>
+											</div>
+                                            
+                                            <div class="valid-feedback">
+                                               Email valido
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                        	  Por favor ingrese un email valido
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                            <label for="precioVenta">Telefono</label>
+                                            <input type="text" class="form-control" id="precioVenta" name="precioVenta" placeholder="">
+                                            
+             						</div>
+             						
+                                </div>
+                                                 
+                            </div>
+                 	</div>
+                 	<div class="main-card mb-3 card">
+        		<div class="card-body">
+                	<h5 class="card-title">Domicilio</h5>
+                			<div class="form-row">
+                                	
+                              		<div class="col-md-4 mb-3">
+                                            <label for="precioCompra">Calle</label>
+                                            <input type="text" style="text-transform: uppercase;" class="form-control" id="calle" name="calle" placeholder="calle" required>
+                                            
+                                        	<div class="invalid-feedback">
+                                        	  La calle es requerida
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                            <label for="precioVenta">N&uacute;m Exterior</label>
+                                            <input type="text" class="form-control" id="numExterior" name="numExterior" placeholder="" required>
+                                            
+                                        	<div class="invalid-feedback">
+                                        	 	N&uacute;m Exterior requerido
+                                               
+                                            </div>
+             						</div>
+                                    <div class="col-md-4 mb-3">
+                                            <label for="precioVenta">N&uacute;m Interior</label>
+                                            <input type="text" class="form-control" id="numInterior" name="numInterior" placeholder="">
+                                            
+                                 
+             						</div>
+             						
+                                </div>
+                    	
+                        	<div class="form-row">
+                            	
+                                 <div class="col-md-2 mb-3">
+                                 	<label for="nombre">Codigo Postal</label>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="codigoPostal" name="codigoPostal" placeholder="codigo postal" value=""  required >
+                                        	<div class="valid-feedback">
+                                                Codigo Postal valido
+                                            </div>
+                                        	<div class="invalid-feedback">
+                                                El codigo postal es requerido
+                                            </div>
+                                 </div>
+                                 <div class="col-md-4 mb-3">
+                                            <label for="colonia">Colonia</label>
+                                            <select name="colonia" id="colonia" class="mb-2 form-control" required>
+<!--                                                         <option value="">SELECCIONE UNA OPCI&Oacute;N</option> -->
+                                                        
+                                            </select>
+                                             
+                                            <div class="invalid-feedback">
+                                                La colonia es requerida
+                                            </div>
+                                 </div>
+                                 <div class="col-md-3 mb-3">
+                                 	<label for="modelo">Municipio</label>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="municipio" name="municipio" placeholder="municipio" value="">
+                                        	
+                                 </div>
+                                 <div class="col-md-3 mb-3">
+                                 	<label for="modelo">Estado</label>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="estado" name="estado" placeholder="estado" value="">
+                                        	
+                                 </div>
+                                 
+                                 
+                              </div>
+                             
+                                
+                                    
+                               <button class="btn btn-primary" type="submit">Registrar</button>
+                          
+            
+                               
+                            </div>
+                 	</div>	
+ 	</form>
+	<script>
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						// Fetch all the forms we want to apply custom Bootstrap validation styles to
+						var forms = document
+								.getElementsByClassName('needs-validation');
+						// Loop over them and prevent submission
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
+	</script>
+
+
+</div>
+
+</html>

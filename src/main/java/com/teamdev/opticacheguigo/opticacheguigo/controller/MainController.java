@@ -71,12 +71,7 @@ public class MainController {
 		return new ModelAndView("resultBusquedaPacientes").addObject("title","Proceso de Venta");
 	}
 	
-	@GetMapping("/agregarMicas")
-	public ModelAndView viewAgregarMicas() {
-		
-		return new ModelAndView("agregarMicas");
-	}
-
+	
 	/**
 	 * Create an instance of the type {@link ModelAndView}
 	 * @return Instance of the type {@link ModelAndView}
