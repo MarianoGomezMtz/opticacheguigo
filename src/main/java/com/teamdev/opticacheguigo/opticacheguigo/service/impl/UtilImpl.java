@@ -266,9 +266,9 @@ public class UtilImpl<T> implements Util<T> {
 	            httpConnection.setRequestProperty("Authorization", "Basic "+encoded);
 	            httpConnection.setDoOutput(true);
 	            httpConnection.setRequestMethod("POST");
-	            httpConnection.setRequestProperty("Content-Type", "application/json");
+	            httpConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 	            OutputStream outputStream = httpConnection.getOutputStream();
-	            outputStream.write(input.getBytes());
+	            outputStream.write(input.getBytes(StandardCharsets.UTF_8));
 	            outputStream.flush();
 	            if (httpConnection.getResponseCode() != 200) {
 	                throw new RuntimeException("Failed : HTTP error code : " + httpConnection.getResponseCode()+" msj: "+ httpConnection.getResponseMessage());

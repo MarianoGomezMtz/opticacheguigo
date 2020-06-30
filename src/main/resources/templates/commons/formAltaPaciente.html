@@ -1,9 +1,13 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
+<head th:fragment="head">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
 
 <div th:fragment="registroPaciente" class="app-main__inner">
-	<form class="needs-validation" novalidate action="#" th:action="@{/paciente/guardar/paciente}" th:object="${mica}" method="post">
+	<form class="needs-validation" novalidate action="#" th:action="@{/pacientes/registro}" th:object="${paciente}" method="post" accept-charset="UTF-8">
 		<div class="main-card mb-3 card">
         		<div class="card-body">
                 	<h5 class="card-title">Datos Personales</h5>
@@ -12,32 +16,33 @@
                             	
                                  <div class="col-md-4 mb-3">
                                  	<label for="nombre">Nombre</label>
-                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="nombre" name="nombre" placeholder="nombre" value="" required>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="nombre" name="nombre" placeholder="nombre" required>
                                         	<div class="valid-feedback">
-                                                El nombre es requerido
+                                        		 Nombre valido
+                                                
                                             </div>
                                         	<div class="invalid-feedback">
-                                                Nombre valido
+                                               El nombre es requerido
                                             </div>
                                  </div>
                                  <div class="col-md-4 mb-3">
                                  	<label for="modelo">Apellido Paterno</label>
                                     	<input type="text" style="text-transform: uppercase;" class="form-control" id="apPaterno" name="apPaterno" placeholder="Apellido Paterno" value="" required>
                                         	<div class="valid-feedback">
-                                                El apellido paterno es requerido
+                                                Apellido Valido
                                             </div>
                                         	<div class="invalid-feedback">
-                                                Apellido Valido
+                                                El apellido paterno es requerido
                                             </div>
                                  </div>
                                  <div class="col-md-4 mb-3">
                                  	<label for="modelo">Apellido Materno</label>
-                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="apMaterno" name="apMaterno" placeholder="Apellido Materno" value="" required>
+                                    	<input type="text" style="text-transform: uppercase;" class="form-control" id="apMaterno" name="apMaterno" placeholder="Apellido Materno" required>
                                         	<div class="valid-feedback">
-                                                El apellido materno es requerido
+                                                Apellido Valido
                                             </div>
                                         	<div class="invalid-feedback">
-                                                Apellido Valido
+                                                El apellido materno es requerido
                                             </div>
                                  </div>
                                                                   
@@ -62,7 +67,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                             <label for="precioVenta">Telefono</label>
-                                            <input type="text" class="form-control" id="precioVenta" name="precioVenta" placeholder="">
+                                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="">
                                             
              						</div>
              						

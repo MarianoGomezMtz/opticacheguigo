@@ -53,8 +53,6 @@ public class CatalogoServiceImpl implements CatalogoService {
 	 @Value("${eliminaMica}")
 	 private String urlEliminaMica;
 	 
-	 
-	 
 	 @Autowired
 	 Util util;
 	 
