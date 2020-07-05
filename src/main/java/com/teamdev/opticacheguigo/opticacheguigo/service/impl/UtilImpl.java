@@ -138,7 +138,7 @@ public class UtilImpl<T> implements Util<T> {
                 throw new RuntimeException("Failed : HTTP error code : " + httpConnection.getResponseCode());
             }
             BufferedReader responseBuffer = new BufferedReader(
-                    new InputStreamReader((httpConnection.getInputStream()), "UTF8"));
+                    new InputStreamReader((httpConnection.getInputStream()), StandardCharsets.UTF_8));
             String outputline;
             while ((outputline = responseBuffer.readLine()) != null) {
                 output += outputline;
@@ -203,7 +203,7 @@ public class UtilImpl<T> implements Util<T> {
 		System.out.println("GET Response Code :: " + responseCode);
 		if (responseCode == HttpURLConnection.HTTP_OK) { // success
 			BufferedReader in = new BufferedReader(
-                    new InputStreamReader((connection.getInputStream()), "UTF8"));
+                    new InputStreamReader((connection.getInputStream()), StandardCharsets.UTF_8));
 			String inputLine;
 			StringBuffer response = new StringBuffer();
 
@@ -212,7 +212,7 @@ public class UtilImpl<T> implements Util<T> {
 			}
 			in.close();
 
-			output = new String(response.toString().getBytes(),"ISO-8859-1");
+			output = new String(response.toString().getBytes(),StandardCharsets.UTF_8);
 			return output;
 		} else {
 			System.out.println("GET request not worked");
@@ -274,7 +274,7 @@ public class UtilImpl<T> implements Util<T> {
 	                throw new RuntimeException("Failed : HTTP error code : " + httpConnection.getResponseCode()+" msj: "+ httpConnection.getResponseMessage());
 	            }
 	            BufferedReader responseBuffer = new BufferedReader(
-	                    new InputStreamReader((httpConnection.getInputStream()), "UTF8"));
+	                    new InputStreamReader((httpConnection.getInputStream()), StandardCharsets.UTF_8));
 	            String outputline;
 	            while ((outputline = responseBuffer.readLine()) != null) {
 	                output += outputline;
