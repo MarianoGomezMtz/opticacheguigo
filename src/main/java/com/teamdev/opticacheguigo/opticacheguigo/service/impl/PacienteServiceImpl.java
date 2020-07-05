@@ -37,10 +37,7 @@ public class PacienteServiceImpl implements PacienteService{
 	
 	@Override
 	public ClienteDto converToMayus(ClienteDto paciente) {
-//		String rawString = "Entwickeln Sie mit Vergnügen";
-//		byte[] bytes = rawString.getBytes(StandardCharsets.UTF_8);
-//		 
-//		String utf8EncodedString = new String(bytes, StandardCharsets.UTF_8);
+
 		paciente.setId(paciente.getId()==null?null:paciente.getId());
 		paciente.setNombre(paciente.getNombre()==null?null:paciente.getNombre().toUpperCase());
 		paciente.setApPaterno(paciente.getApPaterno()==null?null:paciente.getApPaterno().toUpperCase());
