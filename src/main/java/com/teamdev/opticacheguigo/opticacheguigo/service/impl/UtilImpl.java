@@ -160,12 +160,12 @@ public class UtilImpl<T> implements Util<T> {
 			obj = new URL(url);
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 			con.setRequestMethod("GET");
-			con.setRequestProperty("Content-Type", "application/json");
+			con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 			int responseCode = con.getResponseCode();
 			System.out.println("GET Response Code :: " + responseCode);
 			if (responseCode == HttpURLConnection.HTTP_OK) { // success
 				BufferedReader in = new BufferedReader(
-	                    new InputStreamReader((con.getInputStream()), "UTF8"));
+	                    new InputStreamReader((con.getInputStream()), StandardCharsets.UTF_8));
 				String inputLine;
 				StringBuffer response = new StringBuffer();
 
@@ -174,7 +174,7 @@ public class UtilImpl<T> implements Util<T> {
 				}
 				in.close();
 
-				output = new String(response.toString().getBytes(),"ISO-8859-1");
+				output = new String(response.toString().getBytes(),StandardCharsets.UTF_8);
 				return output;
 			} else {
 				System.out.println("GET request not worked");

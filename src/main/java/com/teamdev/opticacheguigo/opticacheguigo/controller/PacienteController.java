@@ -43,7 +43,7 @@ public class PacienteController {
 		return new ModelAndView(REGISTRO_PACIENTE);
 	}
 	
-	@GetMapping("/codigoCP/{cp}")
+	@GetMapping(value = "/codigoCP/{cp}", produces = "application/json;charset=UTF-8")
 	public List<CPValidoDto> consultaCp(@PathVariable(name="cp") String cp) {
 		return codigoPostalService.getListCP(cp);
 		
