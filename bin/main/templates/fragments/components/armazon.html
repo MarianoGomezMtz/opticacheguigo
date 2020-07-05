@@ -7,11 +7,13 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="pe-7s-car icon-gradient bg-mean-fruit"> </i>
+                    <i class="pe-7s-glasses icon-gradient bg-mean-fruit"> </i>
+<!--                     <i class="pe-7s-look icon-gradient bg-mean-fruit"> </i> -->
+                    
                 </div>
                 <div>
-                    Armazones
-                    <div class="page-title-subheading"></div>
+                      Inventario de Armaz&oacute;nes
+                     <div class="page-title-subheading"></div>
                 </div>
             </div>
 
@@ -19,77 +21,67 @@
     </div>
     <div class="main-card mb-3 card">
         <div class="card-body">
-            <h5 class="card-title">Bootstrap 4 Form Validation</h5>
-            <form class="needs-validation" novalidate>
-                <div class="form-row">
-                    <div class="col-md-4 mb-3">
-                        <label for="validationCustom01">First name</label>
-                        <input type="text" class="form-control" id="validationCustom01" placeholder="First name"
-                               value="Mark" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="validationCustom02">Last name</label>
-                        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name"
-                               value="Otto" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="validationCustomUsername">Username</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            </div>
-                            <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username"
-                                   aria-describedby="inputGroupPrepend" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom03">City</label>
-                        <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid city.
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="validationCustom04">State</label>
-                        <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid state.
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="validationCustom05">Zip</label>
-                        <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid zip.
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                        <label class="form-check-label" for="invalidCheck">
-                            Agree to terms and conditions
-                        </label>
-                        <div class="invalid-feedback">
-                            You must agree before submitting.
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-primary" type="submit">Submit form</button>
-            </form>
-
-
+            <h5 class="card-title">Listado de Armazones</h5>
+           
+                <div class="col-lg-12">
+                               
+                                        <div class="table-responsive">
+                                            <table class="mb-0 table" id="tblProducto">
+                                                <thead>
+                                                <tr>
+                                                    <th>Clave</th>
+                                                    <th>Armaz&oacute;n</th>
+                                                    <th>Tipo</th>
+                                                    <th>Stock</th>
+                                                    <th>Modelo</th>
+                                                    <th>Color</th>
+                                                    <th>Tama&ntilde;o</th>
+                                                    <th>Acci&oacute;n</th>
+                                                    <th class="d-none">producto</th>
+                                                    <th class="d-none">categoria</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                	<tr th:each="producto : ${productos}">
+														<td th:text="${producto.clave}"></td>
+														<td th:text="${producto.nombre}"></td>
+														<td th:text="${producto.tipo}"></td>
+														<td th:text="${producto.existencia}"></td>
+														<td th:text="${producto.modelo}"></td>
+														<td th:text="${producto.color}"></td>
+														<td th:text="${producto.tamanio}"></td>
+														<td>
+															<div class="row">
+																<div class="font-icon-md">
+																	  	<button type="button" data-toggle="tooltip" title="Agregar Stock" data-placement="bottom" class="btn-shadow mr-3 btn btn-success"
+																	  	data-izimodal-open="#modalAgregarStock" data-izimodal-transitionin="fadeInDown"
+																	  	>
+                                        									<i class="pe-7s-plus pe-2x pe-va"></i>
+                                    									</button>
+																</div>
+																<div class="font-icon-md">
+																	  	<button type="button" data-toggle="tooltip" title="Ver detalle" data-placement="bottom" class="btn-shadow mr-3 btn btn-info"
+																	  	data-izimodal-open="#modalDetalleArmazon" data-izimodal-transitionin="fadeInDown" th:attr="onclick=|detalleProducto('${producto.id}')|" >
+<!-- 																	  	th:onclick="detalleProducto(${producto.id})" -->
+																	  	
+                                        									<i class="pe-7s-look pe-2x pe-va"></i>
+                                    									</button>
+																</div>
+															</div>
+																													
+														</td>
+														<td th:text ="${producto.id}" class="d-none"></td>
+														<td th:text ="${producto.idCategoria}" class="d-none"></td>
+														
+													</tr>
+                                              
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                 
+                                </div>
+                 </div>
+ 
         </div>
     </div>
 

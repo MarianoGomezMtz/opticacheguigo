@@ -6,7 +6,7 @@
 		<ul class="vertical-nav-menu">
 			<li class="app-sidebar__heading">Resumen</li>
 			<li>
-				<a th:href="@{/}" class="mm-active"> <i
+				<a th:href="@{/inventario/}" class="mm-active"> <i
 					class="metismenu-icon pe-7s-graph1"></i> Ventas
 				</a>
 			</li>
@@ -19,24 +19,23 @@
 				</a>
 				<ul>
 					<li>
-						<a th:href="@{/armazones}"> 
+						<a th:href="@{/catalogo/armazon}"> 
+							<i class="metismenu-icon"></i> 
+							Categoria de Armazon
+						</a>
+					</li>
+					<li>
+						<a th:href="@{/catalogo/micas}"> 
 							<i class="metismenu-icon"></i> 
 							Categoria de Micas
 						</a>
 					</li>
 					<li>
-						<a th:href="@{/micas}"> 
+						<a th:href="@{/catalogo/insumo}"> 
 							<i class="metismenu-icon"> </i>
 							Insumos/Accesorios
 						</a>
 					</li>
-					<li>
-						<a th:href="@{/insumos}"> 
-						<i class="metismenu-icon"></i>
-							Tipo de Agenda
-						</a>
-					</li>
-					
 					
 				</ul>
 			</li>
@@ -48,19 +47,19 @@
 				</a>
 				<ul>
 					<li>
-						<a th:href="@{/armazones}"> 
+						<a th:href="@{/inventario/armazones}"> 
 							<i class="metismenu-icon"></i> 
 							Armazones
 						</a>
 					</li>
 					<li>
-						<a th:href="@{/micas}"> 
+						<a th:href="@{/inventario/micas}"> 
 							<i class="metismenu-icon"> </i>
 							Micas
 						</a>
 					</li>
 					<li>
-						<a th:href="@{/insumos}"> 
+						<a th:href="@{/inventario/insumos}"> 
 						<i class="metismenu-icon"></i>
 							Insumos
 						</a>
@@ -77,21 +76,21 @@
 				</a>
 				<ul>
 					<li>
-						<a href="components-tabs.html"> 
+						<a th:href="@{/pacientes/registro}"> 
 						<i class="metismenu-icon"> </i>
 							Registro Paciente
 						</a>
 					</li>
 					<li>
-						<a href="components-accordions.html"> 
+						<a th:href="@{/pacientes/gestion}"> 
 						<i class="metismenu-icon"> </i>
 							Consulta de Paciente
 						</a>
 					</li>
 					<li>
-						<a href="components-notifications.html">
+						<a th:href="@{/pacientes/avisos}">
 						 <i class="metismenu-icon"> </i>
-							 Notifications
+							 Notificaciones
 						</a>
 					</li>
 					<li>
@@ -100,9 +99,6 @@
 						Modals
 						</a>
 					</li>
-					
-					
-					
 					
 				</ul>
 			</li>
@@ -122,7 +118,7 @@
 				<ul>
 					
 					<li>
-						<a href="elements-navigation.html"> 
+						<a th:href="@{/inventario/agenda}"> 
 						<i class="metismenu-icon"> </i>
 							Agenda
 						</a>
@@ -152,13 +148,13 @@
 				</a>
 				<ul>
 					<li>
-						<a th:href="@{/procesoPago}"> 
+						<a th:href="@{/inventario/procesoPago}"> 
 						<i class="metismenu-icon"> </i>
 							Pagos
 						</a>
 					</li>
 					<li>
-						<a th:href="@{/procesoVenta}"> 
+						<a th:href="@{/inventario/procesoVenta}"> 
 						<i class="metismenu-icon"> </i>
 							Ventas
 						</a>
@@ -168,6 +164,13 @@
 					
 				</ul>
 			</li>
+			<li class="app-sidebar__heading">Salir</li>
+			<li>
+				<a th:href="@{/logout}" class="mm-active"> <i
+					class="metismenu-icon pe-7s-next-2"></i> Cerrar Sesi&oacute;n
+				</a>
+			</li>
+			
 				
 			
 			

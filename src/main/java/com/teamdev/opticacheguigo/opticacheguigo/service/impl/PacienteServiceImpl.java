@@ -42,10 +42,10 @@ public class PacienteServiceImpl implements PacienteService{
 		paciente.setNombre(paciente.getNombre()==null?null:paciente.getNombre().toUpperCase());
 		paciente.setApPaterno(paciente.getApPaterno()==null?null:paciente.getApPaterno().toUpperCase());
 		paciente.setApMaterno(paciente.getApMaterno()==null?null:paciente.getApMaterno().toUpperCase());
-		paciente.setColonia(paciente.getColonia()==null?null:new String(paciente.getColonia().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8).toUpperCase());
-		paciente.setMunicipio(paciente.getMunicipio()==null?null:new String(paciente.getMunicipio().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8).toUpperCase());
-		paciente.setEstado(paciente.getEstado()==null?null:new String(paciente.getEstado().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8).toUpperCase());
-		paciente.setCalle(paciente.getCalle()==null?null:new String(paciente.getCalle().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8).toUpperCase());
+		paciente.setColonia(paciente.getColonia()==null?null:paciente.getColonia().toUpperCase());
+		paciente.setMunicipio(paciente.getMunicipio()==null?null:paciente.getMunicipio().toUpperCase());
+		paciente.setEstado(paciente.getEstado()==null?null:paciente.getEstado().toUpperCase());
+		paciente.setCalle(paciente.getCalle()==null?null:paciente.getCalle().toUpperCase());
 		paciente.setTelefono(paciente.getTelefono()==null?null:paciente.getTelefono());
 		paciente.setEmail(paciente.getEmail()==null?null:paciente.getEmail());
 		return paciente;
