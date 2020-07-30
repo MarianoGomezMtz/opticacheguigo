@@ -62,6 +62,23 @@ function confirmaEliminar(id) {
         });
 }
 
+function confirmaEliminarBaseMaterial(id) {
+    swal({
+        title: "¿Desea continuar?",
+        text: "Ya no podrá utilizar la Base de Material",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                cambiaEstatusBaseMaterial(id, 0);
+            } else {
+
+            }
+        });
+}
+
 function confirmaActivar(id) {
     swal({
         title: "¿Desea continuar?",
@@ -73,6 +90,23 @@ function confirmaActivar(id) {
         .then((willDelete) => {
             if (willDelete) {
                 eliminaProducto(id, 1);
+            } else {
+
+            }
+        });
+}
+
+function confirmaActivarBaseMaterial(id) {
+    swal({
+        title: "¿Desea continuar?",
+        text: "La Base de Material será reestablecida",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                cambiaEstatusBaseMaterial(id, 1);
             } else {
 
             }
@@ -148,6 +182,41 @@ function eliminaProducto(id, status) {
 
 }
 
+function cambiaEstatusBaseMaterial(id, status) {
+
+    var uri = ObtieneContex() + '/catalogo/elimina/baseMaterial/' + id + "/" + status;
+    uri = uri.replace("/catalogo/catalogo/", "/catalogo/");
+
+    $.ajax({
+        type: 'GET',
+        url: uri,
+        beforeSend: function () {
+        },
+        success: function (data) {
+            if (data.codigo === 1)
+                mensajeExito(data.mensaje);
+            if (data.codigo === 0)
+                mensajeError(data.mensaje);
+
+        },
+        error: function () {
+            mensajeError("Intente de nuevo, si el problema persiste contacte al administrador");
+            /*
+            var dialog = bootbox.alert({
+                message: '<p class="text-center">' + "No se encontro resultados con los criterios introducidos" + '</p>',
+                closeButton: true
+            });
+            */
+        }, complete: function () {
+            setTimeout(function () {
+                location.reload();
+            }, 2400);
+
+        }
+    })
+
+}
+
 function eliminaMica(id, status) {
 
     var uri = ObtieneContex() + '/catalogo/elimina/mica/' + id + "/" + status;
@@ -182,7 +251,6 @@ function eliminaMica(id, status) {
 function detalleProducto(id) {
 
     // $("#formMdfProduct")[0].reset();
-
     var uri = ObtieneContex() + '/catalogo/detailproducto/' + id;
     uri = uri.replace("/catalogo/catalogo/", "/catalogo/");
     $.ajax({
@@ -205,6 +273,35 @@ function detalleProducto(id) {
             $("#actPrecioCompra").val(data.precioCompra);
             $("#actPrecioVenta").val(data.precioVenta);
             $("#actExistencia").val(data.existencia);
+
+        },
+        error: function () {
+
+            /*
+            var dialog = bootbox.alert({
+                message: '<p class="text-center">' + "No se encontro resultados con los criterios introducidos" + '</p>',
+                closeButton: true
+            });
+            */
+        }
+    })
+
+}
+
+function detalleBaseMaterial(id) {
+
+    // $("#formMdfProduct")[0].reset();
+    let uri = ObtieneContex() + '/catalogo/detailBaseMaterial/' + id;
+    uri = uri.replace("/catalogo/catalogo/", "/catalogo/");
+    $.ajax({
+        type: 'GET',
+        url: uri,
+        beforeSend: function () {
+
+        },
+        success: function (data) {
+            $("#actId").val(data.id);
+            $("#actNombre").val(data.nombre);
 
         },
         error: function () {

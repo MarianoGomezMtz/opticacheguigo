@@ -24,16 +24,16 @@
 
         </div>
         <div class="app-main__outer">
-            <div th:replace="fragments/components/insumo::insumo">
+            <div th:replace="fragments/components/baseMaterial::baseMaterial">
 
             </div>
             <div id="modalAgregarStock" data-iziModal-title="Stock" data-iziModal-subtitle="Agregar Stock">
-                <div th:replace="commons/agregarStock::modal-stock('Insumo')">
+                <div th:replace="commons/agregarStock::modal-stock('BaseMaterial')">
                 </div>
             </div>
-            <div id="modalDetalleArmazon" data-iziModal-title="Armaz&oacute;n"
-                 data-iziModal-subtitle="Detalle Armaz&oacute;n">
-                <div th:replace="commons/detalleInsumo::modal-detalleIn('Insumo')">
+            <div id="modalDetalleBaseMaterial" data-iziModal-title="Base Material"
+                 data-iziModal-subtitle="Detalle Base de Material">
+                <div th:replace="commons/detalleBaseMaterial::modal-detalleIn('BaseMaterial')">
                 </div>
             </div>
         </div>

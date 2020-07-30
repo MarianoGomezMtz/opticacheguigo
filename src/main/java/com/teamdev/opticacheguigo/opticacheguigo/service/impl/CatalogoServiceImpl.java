@@ -3,6 +3,8 @@ package com.teamdev.opticacheguigo.opticacheguigo.service.impl;
 import java.io.IOException;
 import java.util.Date;
 
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.MaterialDto;
+import com.teamdev.opticacheguigo.opticacheguigo.service.InventarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -14,6 +16,7 @@ import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
 import com.teamdev.opticacheguigo.opticacheguigo.service.CatalogoService;
 import com.teamdev.opticacheguigo.opticacheguigo.service.Util;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Service
@@ -45,20 +48,38 @@ public class CatalogoServiceImpl implements CatalogoService {
     @Value("${eliminaMica}")
     private String urlEliminaMica;
 
+    @Value("${registrarBaseMaterial}")
+    private String urlRegistrarBaseMaterial;
+
+    @Value("${modificarBaseMaterial}")
+    private String urlModificarBaseMaterial;
+
+    @Value("${eliminarBaseMaterial}")
+    private String urlEliminarBaseMaterial;
+
     private static final String ERROR_INSERT = "OCURRIO UN ERROR AL REGISTRAR";
     private static final String ERROR_UPDATE = "OCURRIO UN ERROR AL ACTUALIZAR";
     private static final String ERROR_DELETE = "OCURRIO UN ERROR AL ELIMINAR";
 
     private final Util util;
+    private final InventarioService inventarioService;
 
     @Autowired
-    public CatalogoServiceImpl(Util util) {
+    public CatalogoServiceImpl(Util util, InventarioService inventarioService) {
         this.util = util;
+        this.inventarioService = inventarioService;
     }
 
     @Override
     public ResponseGeneric registrarProducto(ProductoDto producto, AuthHeader userSession) {
         String result = util.callRestPostAuth(producto, urlRegistrarProducto, userSession);
+        return (result.equals("ERROR") ? new ResponseGeneric(0, ERROR_INSERT, new Date(), 1) : (ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
+
+    }
+
+    @Override
+    public ResponseGeneric registrarBaseMaterial(MaterialDto producto, AuthHeader userSession) {
+        String result = util.callRestPostAuth(producto, urlRegistrarBaseMaterial, userSession);
         return (result.equals("ERROR") ? new ResponseGeneric(0, ERROR_INSERT, new Date(), 1) : (ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
 
     }
@@ -100,10 +121,10 @@ public class CatalogoServiceImpl implements CatalogoService {
 
     }
 
-    private ResponseGeneric getResponseGeneric(String idMica, String status, AuthHeader userSession, String url) {
+    private ResponseGeneric getResponseGeneric(String id, String status, AuthHeader userSession, String url) {
         String result = "ERROR";
         try {
-            result = util.sendGetAuth(url + idMica + "/" + status, userSession);
+            result = util.sendGetAuth(url + id + "/" + status, userSession);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -131,6 +152,19 @@ public class CatalogoServiceImpl implements CatalogoService {
     public ResponseGeneric registraMica(MicaDto mica, AuthHeader userSession) {
         String result = util.callRestPostAuth(mica, urlRegistrarMica, userSession);
         return (result.equals("ERROR") ? new ResponseGeneric(0, ERROR_UPDATE, new Date(), 1) : (ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
+    }
+
+    @Override
+    public ResponseGeneric eliminarBaseMaterial(String id, String status, AuthHeader userSession) {
+        return getResponseGeneric(id, status, userSession, urlEliminarBaseMaterial);
+
+    }
+
+    @Override
+    public ResponseGeneric actualizarBM(MaterialDto producto, AuthHeader userSession) {
+        String result = util.callRestPostAuth(producto, urlModificarBaseMaterial, userSession);
+        return (result.equals("ERROR") ? new ResponseGeneric(0, ERROR_UPDATE, new Date(), 1) : (ResponseGeneric) util.jsonToObject(new ResponseGeneric(), result));
+
     }
 
 

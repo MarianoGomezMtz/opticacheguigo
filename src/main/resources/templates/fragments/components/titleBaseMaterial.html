@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="insumo" class="app-main__inner">
+<div th:fragment="baseMaterial" class="app-main__inner">
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
@@ -12,7 +12,7 @@
 
                 </div>
                 <div>
-                    Gesti&oacute;n de Insumos
+                    Gesti&oacute;n de Base de Material
                     <div class="page-title-subheading"></div>
                 </div>
             </div>
@@ -28,13 +28,13 @@
                             <button type="button" data-toggle="collapse" data-target="#collapseOne1"
                                     aria-expanded="true" aria-controls="collapseOne"
                                     class="text-left m-0 p-0 btn btn-link btn-block">
-                                <h5 class="m-0 p-0">Registro de Insumos</h5>
+                                <h5 class="m-0 p-0">Registro de Base de Material</h5>
                             </button>
                         </div>
                         <div data-parent="#accordion" id="collapseOne1" aria-labelledby="headingOne"
                              class="collapse show">
                             <div class="card-body">
-                                <div th:replace="commons/registraInsumo::modal-addInsumo">
+                                <div th:replace="commons/registraBaseMaterial::modal-addBaseMaterial">
                                 </div>
                             </div>
                         </div>
@@ -44,11 +44,11 @@
                             <button type="button" data-toggle="collapse" data-target="#collapseOne2"
                                     aria-expanded="false" aria-controls="collapseTwo"
                                     class="text-left m-0 p-0 btn btn-link btn-block"><h5 class="m-0 p-0">
-                                Actualizacion/Eliminacion de Insumos</h5></button>
+                                Actualizacion/Eliminacion de Base de Material</h5></button>
                         </div>
                         <div data-parent="#accordion" id="collapseOne2" class="collapse">
                             <div class="card-body">
-                                <div th:replace="fragments/components/tblInsumos::tblInsumos">
+                                <div th:replace="fragments/components/tblBaseMaterial::tblBaseMaterial">
 
                                 </div>
                             </div>
@@ -58,12 +58,12 @@
                         <div id="headingThree" class="card-header">
                             <button type="button" data-toggle="collapse" data-target="#collapseOne3"
                                     aria-expanded="false" aria-controls="collapseThree"
-                                    class="text-left m-0 p-0 btn btn-link btn-block"><h5 class="m-0 p-0">Insumos
+                                    class="text-left m-0 p-0 btn btn-link btn-block"><h5 class="m-0 p-0">Base de Material
                                 Eliminados</h5></button>
                         </div>
                         <div data-parent="#accordion" id="collapseOne3" class="collapse">
                             <div class="card-body">
-                                <div th:replace="fragments/components/tblInsumos::tblInsumosEliminados">
+                                <div th:replace="fragments/components/tblBaseMaterial::tblBaseMaterialEliminados">
 
                                 </div>
                             </div>

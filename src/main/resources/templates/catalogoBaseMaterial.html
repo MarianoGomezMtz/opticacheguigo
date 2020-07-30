@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header::head">
+
+</head>
+
+<body>
+<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+    <div th:insert="fragments/header::menuUp"></div>
+
+
+    <div class="app-main">
+        <div class="app-sidebar sidebar-shadow">
+            <div th:replace="fragments/logo::logo">
+            </div>
+            <div th:replace="fragments/logo::mobile-menu"></div>
+            <div th:replace="fragments/logo::header-menu"></div>
+            <div th:replace="fragments/contenido::contenido-menu"></div>
+        </div>
+        <div class="app-main__outer">
+            <div th:replace="fragments/components/titleBaseMaterial::baseMaterial">
+            </div>
+            <div id="modalAgregarStock" data-iziModal-title="Base de Material" data-iziModal-subtitle="Detalle Base Material">
+                <div th:replace="commons/actualizaBaseMaterial::modal-detalleAr('BaseMaterial')"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/jsGeneric::javascripts">
+</div>
+
+<script th:inline="javascript">
+
+    var operacion = [[${codOperacion}]];
+    var msj = [[${mensaje}]];
+    var producto = [[${productoError}]];
+
+    if (operacion == 1) {
+        mensajeExito(msj);
+    } else if (operacion == 2 || operacion == 0) {
+        mensajeError(msj);
+    }
+
+    console.log(msj);
+
+    function mensajeExito(mensaje) {
+        swal("Exito", mensaje, "success");
+    }
+
+
+    function mensajeError(mensaje) {
+        swal("Intente nuevamente", mensaje, "error");
+    }
+
+    function asignaParametros(objProducto) {
+        $("#nombre").val(objProducto.nombre);
+        $("#clave").val(objProducto.clave);
+        $("#modelo").val(objProducto.modelo);
+        $("idMaterial").val(objProducto.idMaterial);
+
+    }
+
+</script>
+
+<div th:replace="fragments/jsCatalogoProducto::javascripts">
+</div>
+</body>
+</html>

@@ -17,6 +17,8 @@ public interface InventarioService {
 	List<ConsultaMicas>micasByMaterial(Integer idMaterial,Integer estatus,AuthHeader userSession);
 	ResponseGeneric actualizarStockProducto(StockProducto stockProducto,AuthHeader userSession);
 	ProductoDto detalleProducto(String idProducto,AuthHeader userSession);
-	List<MaterialDto> getMateriales(AuthHeader userSession);
+	List<MaterialDto> getMateriales(AuthHeader userSession, int status);
 	ConsultaMicas detailMica(String idMica,AuthHeader userSession);
+
+    MaterialDto detailBaseMaterial(String id, AuthHeader userSession);
 }

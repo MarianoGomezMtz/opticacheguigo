@@ -2,54 +2,44 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="tblInsumos" class="app-main__inner">
+<div th:fragment="tblBaseMaterial" class="app-main__inner">
 
     <div class="main-card mb-3 card">
         <div class="card-body">
-            <h5 class="card-title">Listado de Insumos</h5>
-
+            <h5 class="card-title">Listado de Base de Material</h5>
             <div class="col-lg-12">
-
                 <div class="table-responsive">
                     <table class="mb-0 table" id="tblProducto">
                         <thead>
                         <tr>
-                            <th>Clave</th>
-                            <th>Insumo</th>
-                            <th>Stock</th>
+                            <th>Nombre</th>
                             <th>Acci&oacute;n</th>
-                            <th class="d-none">producto</th>
-                            <th class="d-none">categoria</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="producto : ${productos}">
-                            <td th:text="${producto.clave}"></td>
                             <td th:text="${producto.nombre}"></td>
-                            <td th:text="${producto.existencia}"></td>
                             <td>
                                 <div class="row">
                                     <div class="font-icon-md">
-                                        <button type="button" data-toggle="tooltip" title="Actualizar Insumo"
+                                        <button type="button" data-toggle="tooltip" title="Actualizar Base de Material"
                                                 data-placement="bottom" class="btn-shadow mr-3 btn btn-primary"
                                                 data-izimodal-open="#modalAgregarStock"
                                                 data-izimodal-transitionin="fadeInDown"
-                                                th:attr="onclick=|detalleProducto('${producto.id}')|">
+                                                th:attr="onclick=|detalleBaseMaterial('${producto.id}')|">
                                             <i class="pe-7s-note pe-2x pe-va"></i>
                                         </button>
                                     </div>
                                     <div class="font-icon-md">
-                                        <button type="button" data-toggle="tooltip" title="Eliminar Insumo"
+                                        <button type="button" data-toggle="tooltip" title="Eliminar Base de Material"
                                                 data-placement="bottom" class="btn-shadow mr-3 btn btn-danger"
-                                                th:attr="onclick=|confirmaEliminar('${producto.id}')|">
+                                                th:attr="onclick=|confirmaEliminarBaseMaterial('${producto.id}')|">
                                             <!-- 																	  	th:onclick="detalleProducto(${producto.id})" -->
                                             <i class="pe-7s-trash pe-2x pe-va"></i>
                                         </button>
                                     </div>
                                 </div>
                             </td>
-                            <td th:text="${producto.id}" class="d-none"></td>
-                            <td th:text="${producto.idCategoria}" class="d-none"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -58,42 +48,35 @@
         </div>
     </div>
 </div>
-<div th:fragment="tblInsumosEliminados" class="app-main__inner">
+<div th:fragment="tblBaseMaterialEliminados" class="app-main__inner">
 
     <div class="main-card mb-3 card">
         <div class="card-body">
-            <h5 class="card-title">Listado de Insumos Eliminados</h5>
+            <h5 class="card-title">Listado de Base de Material Eliminados</h5>
             <div class="col-lg-12">
 
                 <div class="table-responsive">
                     <table class="mb-0 table" id="tblProductoEliminado">
                         <thead>
                         <tr>
-                            <th>Clave</th>
-                            <th>Insumo</th>
-                            <th>Stock</th>
+                            <th>Nombre</th>
                             <th>Acci&oacute;n</th>
-                            <th class="d-none">producto</th>
-                            <th class="d-none">categoria</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="producto : ${productosEliminados}">
-                            <td th:text="${producto.clave}"></td>
                             <td th:text="${producto.nombre}"></td>
-                            <td th:text="${producto.existencia}"></td>
                             <td>
                                 <div class="row">
                                     <div class="font-icon-md">
-                                        <button type="button" data-toggle="tooltip" title="Activar Insumo" data-placement="bottom" class="btn-shadow mr-3 btn btn-success"
-                                                th:attr="onclick=|confirmaActivar('${producto.id}')|" >
+                                        <button type="button" data-toggle="tooltip" title="Activar Insumo"
+                                                data-placement="bottom" class="btn-shadow mr-3 btn btn-success"
+                                                th:attr="onclick=|confirmaActivarBaseMaterial('${producto.id}')|">
                                             <i class="pe-7s-check pe-2x pe-va"></i>
                                         </button>
                                     </div>
                                 </div>
                             </td>
-                            <td th:text="${producto.id}" class="d-none"></td>
-                            <td th:text="${producto.idCategoria}" class="d-none"></td>
                         </tr>
                         </tbody>
                     </table>
