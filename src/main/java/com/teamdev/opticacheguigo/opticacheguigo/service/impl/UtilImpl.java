@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.cp.CPValidoDto;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ConsultaClienteResDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ConsultaMicas;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.MaterialDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
@@ -359,6 +360,12 @@ public class UtilImpl<T> implements Util<T> {
         }
 		
 		return output;
+	}
+
+
+	@Override
+	public List<ConsultaClienteResDto> arrayJsonToListPaciente(String arrayJson) {
+		 return new Gson().fromJson(arrayJson, new TypeToken<List<ConsultaClienteResDto>>(){}.getType());
 	}
 	
 

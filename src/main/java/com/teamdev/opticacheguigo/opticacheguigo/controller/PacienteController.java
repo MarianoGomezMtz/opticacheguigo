@@ -16,8 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.ClienteDto;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.request.ConsultaClienteDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.UsuarioPassEncrypt;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.cp.CPValidoDto;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ConsultaClienteResDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ResponseGeneric;
 import com.teamdev.opticacheguigo.opticacheguigo.service.CodigoPostalService;
 import com.teamdev.opticacheguigo.opticacheguigo.service.PacienteService;
@@ -28,6 +30,7 @@ import com.teamdev.opticacheguigo.opticacheguigo.service.UsuarioService;
 @RequestMapping("/pacientes")
 public class PacienteController {
 	private static final String REGISTRO_PACIENTE="registroPaciente";
+	private static final String CONSULTA_PACIENTE="consultaPaciente";
 	
 	@Autowired
 	CodigoPostalService codigoPostalService;
@@ -41,6 +44,11 @@ public class PacienteController {
 	@GetMapping({"/registro"})
 	public ModelAndView viewRegistroPaciente() {
 		return new ModelAndView(REGISTRO_PACIENTE);
+	}
+	
+	@GetMapping({"/consulta"})
+	public ModelAndView viewConsultaPaciente() {
+		return new ModelAndView(CONSULTA_PACIENTE);
 	}
 	
 
@@ -57,6 +65,11 @@ public class PacienteController {
 		return new ModelAndView(REGISTRO_PACIENTE).addObject("responseAlta",response);
 	}
 	
+	@PostMapping(path = "/consulta")
+	public ModelAndView consultarPaciente(@ModelAttribute ConsultaClienteDto paciente) {
+		List<ConsultaClienteResDto> response= pacienteService.consultaPacientes(pacienteService.convertConsultToMayus(paciente), getUsuario());
+		return new ModelAndView(CONSULTA_PACIENTE).addObject("pacientes",response);
+	}
 	
 	
 	public AuthHeader getUsuario() {

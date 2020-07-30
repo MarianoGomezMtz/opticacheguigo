@@ -9,6 +9,7 @@ import org.json.simple.parser.ParseException;
 
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.AuthHeader;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.request.cp.CPValidoDto;
+import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ConsultaClienteResDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ConsultaMicas;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.MaterialDto;
 import com.teamdev.opticacheguigo.opticacheguigo.dto.response.ProductoDto;
@@ -44,5 +45,8 @@ public interface Util<T> {
 
     List<CPValidoDto> arrayJsonToListCP(String arrayJson);
 
-
+    List<ConsultaClienteResDto> arrayJsonToListPaciente(String arrayJson);
+    
+    
+   
 }
